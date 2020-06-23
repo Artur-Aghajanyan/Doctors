@@ -1992,8 +1992,20 @@ __webpack_require__.r(__webpack_exports__);
   name: "Signup",
   data: function data() {
     return {
-      show: true
+      message: 'Not selected',
+      validateVal: true
     };
+  },
+  methods: {
+    handleFileChange: function handleFileChange(event) {
+      if (event.target.value === '') {
+        this.message = 'Not selected';
+        this.validateVal = true;
+      } else {
+        this.message = 'Selected';
+        this.validateVal = false;
+      }
+    }
   }
 });
 
@@ -6442,7 +6454,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container[data-v-5c0ed343]{\n    background: url(" + escape(__webpack_require__(/*! ../../images/rethink-target-heart-rate-number-ftr.jpg */ "./resources/images/rethink-target-heart-rate-number-ftr.jpg")) + ") no-repeat;\n    background-size: cover;\n}\n.card-header[data-v-5c0ed343]{\n    background: #1cb31c;\n}\n.mb-0[data-v-5c0ed343], .my-2[data-v-5c0ed343]{\n    font-weight: 900;\n    text-align: center;\n}\n#inputDownloadImage[data-v-5c0ed343]{\n    width: 125px;\n}\n.aaalave[data-v-5c0ed343]{\n    background: url(\"http://100dayscss.com/codepen/upload.svg\") no-repeat;\n    cursor: pointer;\n    background-size: 100px;\n    width: 100px;\n    height: 59px;\n}\n.tolave[data-v-5c0ed343]{\n    display: none;\n}\n.downloadImage[data-v-5c0ed343]{\n    display: block;\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-5c0ed343]{\n    background: url(" + escape(__webpack_require__(/*! ../../images/rethink-target-heart-rate-number-ftr.jpg */ "./resources/images/rethink-target-heart-rate-number-ftr.jpg")) + ") no-repeat;\n    background-size: cover;\n}\n.card-header[data-v-5c0ed343]{\n    background: #1cb31c;\n}\n.mb-0[data-v-5c0ed343], .my-2[data-v-5c0ed343]{\n    font-weight: 900;\n    text-align: center;\n}\n#inputDownloadImage[data-v-5c0ed343]{\n    width: 125px;\n}\n.aaalave[data-v-5c0ed343]{\n    background: url(\"http://100dayscss.com/codepen/upload.svg\") no-repeat;\n    cursor: pointer;\n    background-size: 100px;\n    width: 100px;\n    height: 59px;\n}\n.tolave[data-v-5c0ed343]{\n    display: none;\n}\n.downloadImage[data-v-5c0ed343]{\n    display: block;\n}\n.validate[data-v-5c0ed343]{\n        color: darkred;\n        border-color: darkred;\n}\n.success_add[data-v-5c0ed343]{\n    color: green;\n}\n", ""]);
 
 // exports
 
@@ -38239,220 +38251,73 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container py-5" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 mx-auto" }, [
-            _c("div", { staticClass: "card border-secondary" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "form",
-                    attrs: { role: "form", autocomplete: "off" }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { attrs: { for: "inputName" } }, [
-                            _vm._v("Name")
-                          ])
-                        : _vm._e(),
+  return _c("div", {}, [
+    _c("div", { staticClass: "container py-5", attrs: { id: "signup" } }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6 mx-auto" }, [
+              _c("div", { staticClass: "card border-secondary" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "form",
+                      attrs: { role: "form", autocomplete: "off" }
+                    },
+                    [
+                      _vm._m(1),
                       _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticStyle: { color: "darkred" },
-                              attrs: { for: "inputName" }
-                            },
-                            [_vm._v("Name")]
-                          )
-                        : _vm._e(),
+                      _vm._m(2),
                       _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "inputName",
-                          placeholder: "name"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { attrs: { for: "inputName" } }, [
-                            _vm._v("Surname")
-                          ])
-                        : _vm._e(),
+                      _vm._m(3),
                       _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticStyle: { color: "darkred" },
-                              attrs: { for: "inputName" }
-                            },
-                            [_vm._v("Surname")]
-                          )
-                        : _vm._e(),
+                      _vm._m(4),
                       _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "inputSurname",
-                          placeholder: "surname"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { attrs: { for: "inputEmail" } }, [
-                            _vm._v("Email")
-                          ])
-                        : _vm._e(),
+                      _vm._m(5),
                       _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticStyle: { color: "darkred" },
-                              attrs: { for: "inputEmail" }
-                            },
-                            [_vm._v("Email")]
-                          )
-                        : _vm._e(),
+                      _vm._m(6),
                       _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "email",
-                          id: "inputEmail",
-                          placeholder: "email@gmail.com",
-                          required: ""
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { attrs: { for: "inputPassword" } }, [
-                            _vm._v("Password")
-                          ])
-                        : _vm._e(),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { staticClass: "downloadImage" }, [
+                          _vm._v("Download image")
+                        ]),
+                        _vm._v(" "),
+                        _c("label", {
+                          staticClass: "aaalave",
+                          staticStyle: { width: "100px" },
+                          attrs: { for: "inputDownloadImage" }
+                        }),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "tolave",
+                          attrs: {
+                            type: "file",
+                            multiple: "",
+                            id: "inputDownloadImage",
+                            required: ""
+                          },
+                          on: { change: _vm.handleFileChange }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "h6",
+                          {
+                            class: [
+                              _vm.validateVal ? "validate" : "success_add"
+                            ]
+                          },
+                          [_vm._v(_vm._s(_vm.message))]
+                        )
+                      ]),
                       _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticStyle: { color: "darkred" },
-                              attrs: { for: "inputPassword" }
-                            },
-                            [_vm._v("Password")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "password",
-                          id: "inputPassword",
-                          placeholder: "password",
-                          required: ""
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { attrs: { for: "inputSpeciality" } }, [
-                            _vm._v("Speciality")
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticStyle: { color: "darkred" },
-                              attrs: { for: "inputSpeciality" }
-                            },
-                            [_vm._v("Speciality")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { attrs: { for: "inputAboutYou" } }, [
-                            _vm._v("About you")
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticStyle: { color: "darkred" },
-                              attrs: { for: "inputAboutYou" }
-                            },
-                            [_vm._v("About you")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("textarea", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "inputAboutYou",
-                          placeholder: "About you",
-                          required: ""
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm.show
-                        ? _c("label", { staticClass: "downloadImage" }, [
-                            _vm._v("Download image")
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.show
-                        ? _c(
-                            "label",
-                            {
-                              staticClass: "downloadImage",
-                              staticStyle: { color: "darkred" }
-                            },
-                            [_vm._v("Download image")]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("label", {
-                        staticClass: "aaalave",
-                        staticStyle: { width: "100px" },
-                        attrs: { for: "inputDownloadImage" }
-                      }),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "tolave",
-                        attrs: { type: "file", id: "inputDownloadImage" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ]
-                )
+                      _vm._m(7)
+                    ]
+                  )
+                ])
               ])
             ])
           ])
@@ -38474,68 +38339,166 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "inputName" } }, [_vm._v("Name")]),
+      _vm._v(" "),
+      _c("input", {
         staticClass: "form-control",
-        attrs: { name: "cars", id: "inputSpeciality" }
-      },
-      [
-        _c("option", { attrs: { value: "radiologist" } }, [
-          _vm._v("Radiologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "psychologist" } }, [
-          _vm._v("Psychologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "gynecologist" } }, [
-          _vm._v("Gynecologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ophthalmologist" } }, [
-          _vm._v("Ophthalmologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "cardiologist" } }, [
-          _vm._v("Cardiologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "neonatologist" } }, [
-          _vm._v("Neonatologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "therapeutist" } }, [
-          _vm._v("Therapeutist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "laboratory assistant" } }, [
-          _vm._v("Laboratory assistant")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "nephrologist" } }, [
-          _vm._v("Nephrologist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "urologist" } }, [_vm._v("Urologist")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "traumatologist-orthopedist" } }, [
-          _vm._v("Traumatologist-orthopedist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "therapeutist" } }, [
-          _vm._v("Therapeutist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "surgeon-vascular" } }, [
-          _vm._v("Surgeon-vascular")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "stomatologist" } }, [
-          _vm._v("Stomatologist")
-        ])
-      ]
-    )
+        attrs: {
+          type: "text",
+          id: "inputName",
+          placeholder: "name",
+          required: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "inputName" } }, [_vm._v("Surname")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "inputSurname",
+          placeholder: "surname",
+          required: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "inputEmail" } }, [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "email",
+          id: "inputEmail",
+          placeholder: "email@gmail.com",
+          required: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "inputPassword" } }, [_vm._v("Password")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "password",
+          id: "inputPassword",
+          placeholder: "password",
+          required: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "inputSpeciality" } }, [
+        _vm._v("Speciality")
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "form-control",
+          attrs: { name: "cars", id: "inputSpeciality" }
+        },
+        [
+          _c("option", { attrs: { value: "radiologist" } }, [
+            _vm._v("Radiologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "psychologist" } }, [
+            _vm._v("Psychologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "gynecologist" } }, [
+            _vm._v("Gynecologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "ophthalmologist" } }, [
+            _vm._v("Ophthalmologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "cardiologist" } }, [
+            _vm._v("Cardiologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "neonatologist" } }, [
+            _vm._v("Neonatologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "therapeutist" } }, [
+            _vm._v("Therapeutist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "laboratory assistant" } }, [
+            _vm._v("Laboratory assistant")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "nephrologist" } }, [
+            _vm._v("Nephrologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "urologist" } }, [
+            _vm._v("Urologist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "traumatologist-orthopedist" } }, [
+            _vm._v("Traumatologist-orthopedist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "therapeutist" } }, [
+            _vm._v("Therapeutist")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "surgeon-vascular" } }, [
+            _vm._v("Surgeon-vascular")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "stomatologist" } }, [
+            _vm._v("Stomatologist")
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "inputAboutYou" } }, [_vm._v("About you")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "inputAboutYou",
+          placeholder: "About you",
+          required: ""
+        }
+      })
+    ])
   },
   function() {
     var _vm = this

@@ -1,5 +1,6 @@
 <template>
-    <div class="container py-5">
+    <div class="">
+    <div class="container py-5" id="signup">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -11,29 +12,24 @@
                             <div class="card-body">
                                 <form class="form" role="form" autocomplete="off">
                                     <div class="form-group">
-                                        <label for="inputName" v-if="show">Name</label>
-                                        <label for="inputName" v-if="!show" style="color:darkred">Name</label>
-                                        <input type="text" class="form-control" id="inputName" placeholder="name">
+                                        <label for="inputName" >Name</label>
+                                        <input type="text" class="form-control" id="inputName" placeholder="name" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputName" v-if="show">Surname</label>
-                                        <label for="inputName" v-if="!show" style="color:darkred">Surname</label>
-                                        <input type="text" class="form-control" id="inputSurname" placeholder="surname">
+                                        <label for="inputName" >Surname</label>
+                                        <input type="text" class="form-control" id="inputSurname" placeholder="surname" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail" v-if="show">Email</label>
-                                        <label for="inputEmail" v-if="!show" style="color:darkred">Email</label>
+                                        <label for="inputEmail" >Email</label>
                                         <input type="email" class="form-control" id="inputEmail" placeholder="email@gmail.com" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputPassword" v-if="show">Password</label>
-                                        <label for="inputPassword" v-if="!show" style="color:darkred">Password</label>
+                                        <label for="inputPassword" >Password</label>
                                         <input type="password" class="form-control" id="inputPassword" placeholder="password"  required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputSpeciality" v-if="show">Speciality</label>
-                                        <label for="inputSpeciality" v-if="!show" style="color:darkred">Speciality</label>
-                                        <select class="form-control" name="cars" id="inputSpeciality" >
+                                        <label for="inputSpeciality" >Speciality</label>
+                                        <select class="form-control" name="cars" id="inputSpeciality">
                                             <option value="radiologist">Radiologist</option>
                                             <option value="psychologist">Psychologist</option>
                                             <option value="gynecologist">Gynecologist</option>
@@ -51,15 +47,18 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAboutYou" v-if="show">About you</label>
-                                        <label for="inputAboutYou" v-if="!show" style="color:darkred">About you</label>
+                                        <label for="inputAboutYou" >About you</label>
                                         <textarea type="text" class="form-control" id="inputAboutYou" placeholder="About you"  required=""></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label class="downloadImage" v-if="show">Download image</label>
-                                        <label class="downloadImage" v-if="!show" style="color:darkred">Download image</label>
+                                        <label class="downloadImage" >Download image</label>
                                         <label for="inputDownloadImage" class="aaalave" style="width: 100px"></label><br>
-                                        <input type="file" class="tolave" id="inputDownloadImage">
+                                        <input type="file" class="tolave"
+                                               multiple
+                                               id="inputDownloadImage"
+                                               @change="handleFileChange" required="">
+                                        <h6
+                                         v-bind:class = "[validateVal? 'validate':'success_add']">{{message}}</h6>
                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-lg float-right">Register</button>
@@ -76,19 +75,32 @@
         <!--/row-->
     </div>
     <!--/container-->
+    </div>
 </template>
 
 <script>
-    export default {
+    export default({
         name: "Signup",
-        data: function () {
-            return {
-                show: true,
+        data(){
+            return{
+                message: 'Not selected',
+                validateVal: true
+            }
+        },
+        methods:{
+            handleFileChange(event) {
+                if(event.target.value === ''){
+                    this.message = 'Not selected';
+                    this.validateVal = true
+                }else {
+                    this.message = 'Selected';
+                    this.validateVal = false
+                }
             }
         }
-    }
-</script>
+    })
 
+</script>
 <style scoped>
 .container{
     background: url("../../images/rethink-target-heart-rate-number-ftr.jpg") no-repeat;
@@ -119,5 +131,12 @@
 
 .downloadImage{
     display: block;
+}
+    .validate{
+        color: darkred;
+        border-color: darkred;
+    }
+.success_add{
+    color: green;
 }
 </style>
