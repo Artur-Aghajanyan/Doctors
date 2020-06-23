@@ -1988,6 +1988,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Signup",
   data: function data() {
@@ -53771,16 +53773,19 @@ module.exports = "/images/rethink-target-heart-rate-number-ftr.jpg?efcb91e13a394
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 var app = new Vue({
   el: '#app',
   render: function render(h) {
-    return h(_components_App__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    return h(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"]);
   },
   router: _router__WEBPACK_IMPORTED_MODULE_0__["default"]
 });
