@@ -38299,10 +38299,15 @@ var render = function() {
                       staticClass: "form",
                       attrs: {
                         role: "form",
-                        method: "post",
+                        method: "POST",
                         autocomplete: "off"
                       },
-                      on: { submit: _vm.addDoct }
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.addDoct($event)
+                        }
+                      }
                     },
                     [
                       _c("div", { staticClass: "form-group" }, [

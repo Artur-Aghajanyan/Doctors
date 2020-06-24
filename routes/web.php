@@ -17,4 +17,4 @@ Route::fallback(function (){
     return view('app');
 });
 
-Route::post('/signup', 'SignupController@store');
+//Route::post('/result', 'SignupController@store');

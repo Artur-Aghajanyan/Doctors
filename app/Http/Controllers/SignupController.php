@@ -38,13 +38,13 @@ class SignupController extends Controller
         //
         $data = $request->all();
         $signup = new SignupModel();
-        $signup->name = $data('name');
-        $signup->surname = $data('surname');
-        $signup->email = $data('email');
-        $signup->password = $data('password');
-        $signup->about = $data('about');
-        $signup->speciality = $data('speciality');
-        $signup->image = $data('image');
+        $signup->name = $data['name'];
+        $signup->surname = $data['surname'];
+        $signup->email = $data['email'];
+        $signup->password = $data['password'];
+        $signup->about = $data['about'];
+        $signup->speciality = $data['speciality'];
+        $signup->image = $data['image'];
         $signup->save();
     }
 

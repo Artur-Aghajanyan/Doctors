@@ -12,8 +12,8 @@
                             <div class="card-body">
                                 <form class="form"
                                       role="form"
-                                      method="post"
-                                      @submit="addDoct"
+                                      method="POST"
+                                      @submit.prevent="addDoct"
                                       autocomplete="off">
                                     <div class="form-group">
                                         <label for="inputName" >Name</label>
