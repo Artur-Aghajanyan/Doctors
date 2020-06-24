@@ -10,26 +10,29 @@
                                 <h1 class="mb-0 my-2">Sign Up</h1>
                             </div>
                             <div class="card-body">
-                                <form class="form" role="form" autocomplete="off">
+                                <form class="form"
+                                      role="form"
+                                      @submit="addDoct"
+                                      autocomplete="off">
                                     <div class="form-group">
                                         <label for="inputName" >Name</label>
-                                        <input type="text" class="form-control" id="inputName" placeholder="name" required="">
+                                        <input type="text" v-model="name" class="form-control" id="inputName" placeholder="name" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName" >Surname</label>
-                                        <input type="text" class="form-control" id="inputSurname" placeholder="surname" required="">
+                                        <input type="text" v-model="surname" class="form-control" id="inputSurname" placeholder="surname" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputEmail" >Email</label>
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="email@gmail.com" required="">
+                                        <input type="email" v-model="email" class="form-control" id="inputEmail" placeholder="email@gmail.com" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPassword" >Password</label>
-                                        <input type="password" class="form-control" id="inputPassword" placeholder="password"  required="">
+                                        <input type="password" v-model="password" class="form-control" id="inputPassword" placeholder="password"  required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputSpeciality" >Speciality</label>
-                                        <select class="form-control" name="cars" id="inputSpeciality">
+                                        <select class="form-control" v-model="speciality" name="cars" id="inputSpeciality">
                                             <option value="radiologist">Radiologist</option>
                                             <option value="psychologist">Psychologist</option>
                                             <option value="gynecologist">Gynecologist</option>
@@ -48,7 +51,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAboutYou" >About you</label>
-                                        <textarea type="text" class="form-control" id="inputAboutYou" placeholder="About you"  required=""></textarea>
+                                        <textarea type="text" v-model="about" class="form-control" id="inputAboutYou" placeholder="About you"  required=""></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label class="downloadImage" >Download image</label>
@@ -84,7 +87,14 @@
         data(){
             return{
                 message: 'Not selected',
-                validateVal: true
+                validateVal: true,
+                name:'',
+                surname:'',
+                email:'',
+                password:'',
+                about:'',
+                image:'',
+                speciality:''
             }
         },
         methods:{
@@ -94,8 +104,30 @@
                     this.validateVal = true
                 }else {
                     this.message = 'Selected';
-                    this.validateVal = false
+                    this.validateVal = false;
+                    this.image = event.target.value;
                 }
+            },
+            addDoct(){
+                window.axios.post('./api/result',
+                    {
+                        headers:{
+                            'Content-type':'application/x-www-form-urlencoded'
+                        },
+                        name:this.name,
+                        surname:this.surname,
+                        email: this.email,
+                        password: this.password,
+                        speciality: this.speciality,
+                        about: this.about,
+                        image: this.image
+                    },)
+                    .then(function (response) {
+                        alert('success');
+                    })
+                    .catch(function (error) {
+                        alert(error);
+                    });
             }
         }
     })
