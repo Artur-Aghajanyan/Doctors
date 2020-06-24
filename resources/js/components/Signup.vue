@@ -12,6 +12,7 @@
                             <div class="card-body">
                                 <form class="form"
                                       role="form"
+                                      method="post"
                                       @submit="addDoct"
                                       autocomplete="off">
                                     <div class="form-group">

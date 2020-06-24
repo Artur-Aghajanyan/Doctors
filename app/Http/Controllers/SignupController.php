@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SignupModel;
 use Illuminate\Http\Request;
 
 class SignupController extends Controller
@@ -35,6 +36,16 @@ class SignupController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $signup = new SignupModel();
+        $signup->name = $data('name');
+        $signup->surname = $data('surname');
+        $signup->email = $data('email');
+        $signup->password = $data('password');
+        $signup->about = $data('about');
+        $signup->speciality = $data('speciality');
+        $signup->image = $data('image');
+        $signup->save();
     }
 
     /**
