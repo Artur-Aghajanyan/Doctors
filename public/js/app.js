@@ -1988,6 +1988,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Signup",
   data: function data() {
@@ -6454,7 +6456,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.container[data-v-5c0ed343]{\r\n    background: url(" + escape(__webpack_require__(/*! ../../images/rethink-target-heart-rate-number-ftr.jpg */ "./resources/images/rethink-target-heart-rate-number-ftr.jpg")) + ") no-repeat;\r\n    background-size: cover;\n}\n.card-header[data-v-5c0ed343]{\r\n    background: #1cb31c;\n}\n.mb-0[data-v-5c0ed343], .my-2[data-v-5c0ed343]{\r\n    font-weight: 900;\r\n    text-align: center;\n}\n#inputDownloadImage[data-v-5c0ed343]{\r\n    width: 125px;\n}\n.aaalave[data-v-5c0ed343]{\r\n    background: url(\"http://100dayscss.com/codepen/upload.svg\") no-repeat;\r\n    cursor: pointer;\r\n    background-size: 100px;\r\n    width: 100px;\r\n    height: 59px;\n}\n.tolave[data-v-5c0ed343]{\r\n    display: none;\n}\n.downloadImage[data-v-5c0ed343]{\r\n    display: block;\n}\n.validate[data-v-5c0ed343]{\r\n        color: darkred;\r\n        border-color: darkred;\n}\n.success_add[data-v-5c0ed343]{\r\n    color: green;\n}\r\n", ""]);
+=======
+exports.push([module.i, "\n.container[data-v-5c0ed343]{\r\n    background: url(" + escape(__webpack_require__(/*! ../../images/rethink-target-heart-rate-number-ftr.jpg */ "./resources/images/rethink-target-heart-rate-number-ftr.jpg")) + ") no-repeat;\r\n    background-size: cover;\n}\n.card-header[data-v-5c0ed343]{\r\n    background: #1cb31c;\n}\n.mb-0[data-v-5c0ed343], .my-2[data-v-5c0ed343]{\r\n    font-weight: 900;\r\n    text-align: center;\n}\n#inputDownloadImage[data-v-5c0ed343]{\r\n    width: 125px;\n}\n.aaalave[data-v-5c0ed343]{\r\n    background: url(\"http://100dayscss.com/codepen/upload.svg\") no-repeat;\r\n    cursor: pointer;\r\n    background-size: 100px;\r\n    width: 100px;\r\n    height: 59px;\n}\n.tolave[data-v-5c0ed343]{\r\n    display: none;\n}\n.downloadImage[data-v-5c0ed343]{\r\n    display: block;\n}\r\n", ""]);
+>>>>>>> signup_db
 
 // exports
 
@@ -53734,16 +53740,19 @@ module.exports = "/images/rethink-target-heart-rate-number-ftr.jpg?efcb91e13a394
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 var app = new Vue({
   el: '#app',
   render: function render(h) {
-    return h(_components_App__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    return h(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"]);
   },
   router: _router__WEBPACK_IMPORTED_MODULE_0__["default"]
 });

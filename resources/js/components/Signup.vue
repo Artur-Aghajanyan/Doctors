@@ -81,6 +81,8 @@
     </div>
 </template>
 
+import axios from 'axios
+
 <script>
     export default({
         name: "Signup",
