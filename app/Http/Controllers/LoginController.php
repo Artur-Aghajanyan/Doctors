@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\SignupModel;
 use Illuminate\Http\Request;
 
-class SignupController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,16 +36,6 @@ class SignupController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->all();
-        $signup = new SignupModel();
-        $signup->name = $data['name'];
-        $signup->surname = $data['surname'];
-        $signup->email = $data['email'];
-        $signup->password = $data['password'];
-        $signup->about = $data['about'];
-        $signup->speciality = $data['speciality'];
-        $signup->image = $data['image'];
-        $signup->save();
     }
 
     /**
@@ -93,7 +83,7 @@ class SignupController extends Controller
         //
     }
     public function getData(){
-        $contact = SignupModel::get(['email']);
+        $contact = SignupModel::get(['id','email','password']);
         return $contact;
     }
 }

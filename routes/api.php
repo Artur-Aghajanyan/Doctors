@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/result','SignupController@store');
+Route::post('/check','SignupController@getData');
+
+
+Route::get('/login', 'LoginController@getData');

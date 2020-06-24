@@ -112,25 +112,34 @@ import axios from 'axios
                 }
             },
             addDoct(){
-                window.axios.post('./api/result',
-                    {
-                        headers:{
-                            'Content-type':'application/x-www-form-urlencoded'
-                        },
-                        name:this.name,
-                        surname:this.surname,
-                        email: this.email,
-                        password: this.password,
-                        speciality: this.speciality,
-                        about: this.about,
-                        image: this.image
-                    },)
-                    .then(function (response) {
-                        alert('success');
-                    })
-                    .catch(function (error) {
-                        alert(error);
-                    });
+                axios.get('./api/login').then(resp => {
+                    for (let val of resp.data) {
+                        if(val.email === this.email){
+                            alert('There is email like that');
+                            break;
+                        }else{
+                            window.axios.post('./api/result',
+                                {
+                                    headers:{
+                                        'Content-type':'application/x-www-form-urlencoded'
+                                    },
+                                    name:this.name,
+                                    surname:this.surname,
+                                    email: this.email,
+                                    password: this.password,
+                                    speciality: this.speciality,
+                                    about: this.about,
+                                    image: this.image
+                                },)
+                                .then(function (response) {
+                                    alert('success');
+                                })
+                                .catch(function (error) {
+                                    alert(error);
+                                });
+                        }
+                    }
+                });
             }
         }
     })
