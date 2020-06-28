@@ -1,6 +1,5 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-
         <router-link to="/" class="navbar-brand router">Home</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,16 +18,36 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <router-link id="login" to="/login">Login</router-link>
+                <router-link v-if="resLog === 'true'"  id="user_page" class="navbar-brand router" to="/user">Personal Data</router-link>
+                <router-link v-if="resLog === 'false' || !resLog" id="login" to="/login">Login</router-link>
                 <router-link id="signup" to="/signup">Sign up</router-link>
+                <div  class="btn btn-info btn-lg" @click="logout" v-if="resLog === 'true'">
+                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                </div>
             </form>
         </div>
     </nav>
 </template>
 
 <script>
+    import Vue from 'vue';
+    import VueCookies from 'vue-cookies';
+
+    Vue.use(VueCookies);
     export default {
         name: "Navbar",
+        data() {
+            return{
+                resLog: Vue.$cookies.get('login')
+            }
+        },
+        methods:{
+            logout: function(){
+                Vue.$cookies.set('id', null, 60 * 60 * 24)
+                    .set('login', false, 60 * 60 * 24);
+                window.location.href = '/login';
+            }
+        }
     }
 </script>
 

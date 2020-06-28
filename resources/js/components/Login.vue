@@ -39,27 +39,27 @@
                 email: '',
                 password: '',
                 validate: false,
-                login: false,
+                login: null,
             }
         },
         methods: {
             logDoctPage: function () {
                 if(this.email !== '' && this.password !== '') this.validate = false;
-                else this.validate = true
+                else this.validate = true;
                 axios.get('./api/login').then(resp => {
                     for (let i = 0; i < resp.data.length; i++) {
-                        if (i.email === this.email && i.password === this.password) {
+                        if (resp.data[i].email === this.email && resp.data[i].password === this.password) {
                             this.login = true;
-                            Vue.$cookies.set('id', i.id, 60 * 60 * 24)
+                            Vue.$cookies.set('id', resp.data[i].id, 60 * 60 * 24)
                                 .set('login', this.login, 60 * 60 * 24);
                             window.location.href = 'user';
+                            break
                         } else {
                             if(i === resp.data.length-1){
                                 alert('There isn`t user like this');
                                 this.login = false;
                                 Vue.$cookies.set('login', this.login, 60 * 60 * 24)
                             }
-                            this.login = false;
                         }
                     }
                 });

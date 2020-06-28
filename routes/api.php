@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/result','SignupController@store');
 Route::post('/check','SignupController@getData');
-
+Route::post('/patient-data-add','SignupController@store');
 
 Route::get('/login', 'LoginController@getData');
+Route::get('/user', 'UserPageController@getAllData');
+Route::get('/patient-data','PatientsController@getData');
+

@@ -1,9 +1,10 @@
 <template>
     <div>
-    <Navbar></Navbar>
-    <div class="container">
-        <router-view></router-view>
-    </div></div>
+        <Navbar></Navbar>
+        <div class="container">
+            <router-view></router-view>
+        </div>
+    </div>
 </template>
 
 <script>

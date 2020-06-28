@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\SignupModel;
+use App\PatientsModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class SignupController extends Controller
+class PatientsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,27 +36,15 @@ class SignupController extends Controller
     public function store(Request $request)
     {
         //
-        $exploded = explode(',',$request->image);
-        $decoded = base64_decode($exploded[1]);
-        if(str_contains($exploded[0],'jpeg'))
-            $extension ='jpg';
-        else
-            $extension = 'png';
-        $fileName = Str::random().'.'.$extension;
-        $path = public_path().'/images/'.$fileName;
-        file_put_contents($path, $decoded);
-
-
         $data = $request->all();
-        $signup = new SignupModel();
-        $signup->name = $data['name'];
-        $signup->surname = $data['surname'];
-        $signup->email = $data['email'];
-        $signup->password = $data['password'];
-        $signup->about = $data['about'];
-        $signup->speciality = $data['speciality'];
-        $signup->image = $fileName;
-        $signup->save();
+        $patient = new PatientsModel();
+        $patient->name = $data['name'];
+        $patient->surname = $data['surname'];
+        $patient->phone = $data['phone'];
+        $patient->doctor = $data['doctor'];
+        $patient->time = $data['time'];
+        $patient->type = $data['type'];
+        $patient->save();
     }
 
     /**
@@ -105,7 +92,7 @@ class SignupController extends Controller
         //
     }
     public function getData(){
-        $contact = SignupModel::get(['email']);
-        return $contact;
+        $data = PatientsModel::all();
+        return $data;
     }
 }

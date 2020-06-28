@@ -17,23 +17,23 @@
                                       autocomplete="off">
                                     <div class="form-group">
                                         <label for="inputName" >Name</label>
-                                        <input type="text" v-model="name" class="form-control" id="inputName" placeholder="name" required="">
+                                        <input type="text" v-model="doctor.name" class="form-control" id="inputName" placeholder="name" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName" >Surname</label>
-                                        <input type="text" v-model="surname" class="form-control" id="inputSurname" placeholder="surname" required="">
+                                        <input type="text" v-model="doctor.surname" class="form-control" id="inputSurname" placeholder="surname" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputEmail" >Email</label>
-                                        <input type="email" v-model="email" class="form-control" id="inputEmail" placeholder="email@gmail.com" required="">
+                                        <input type="email" v-model="doctor.email" class="form-control" id="inputEmail" placeholder="email@gmail.com" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPassword" >Password</label>
-                                        <input type="password" v-model="password" class="form-control" id="inputPassword" placeholder="password"  required="">
+                                        <input type="password" v-model="doctor.password" class="form-control" id="inputPassword" placeholder="password"  required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputSpeciality" >Speciality</label>
-                                        <select class="form-control" v-model="speciality" name="cars" id="inputSpeciality">
+                                        <select class="form-control" v-model="doctor.speciality" name="cars" id="inputSpeciality">
                                             <option value="radiologist">Radiologist</option>
                                             <option value="psychologist">Psychologist</option>
                                             <option value="gynecologist">Gynecologist</option>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAboutYou" >About you</label>
-                                        <textarea type="text" v-model="about" class="form-control" id="inputAboutYou" placeholder="About you"  required=""></textarea>
+                                        <textarea type="text" v-model="doctor.about" class="form-control" id="inputAboutYou" placeholder="About you"  required=""></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label class="downloadImage" >Download image</label>
@@ -91,52 +91,61 @@ import axios from 'axios
             return{
                 message: 'Not selected',
                 validateVal: true,
-                name:'',
-                surname:'',
-                email:'',
-                password:'',
-                about:'',
-                image:'',
-                speciality:''
+                doctor:{
+                    name:'',
+                    surname:'',
+                    email:'',
+                    password:'',
+                    about:'',
+                    image:'',
+                    speciality:''
+                },
             }
         },
         methods:{
-            handleFileChange(event) {
-                if(event.target.value === ''){
+            handleFileChange(e) {
+                if(e.target.value === ''){
                     this.message = 'Not selected';
                     this.validateVal = true
                 }else {
                     this.message = 'Selected';
                     this.validateVal = false;
-                    this.image = event.target.value;
+                    var imageRider = new FileReader();
+                    imageRider.readAsDataURL(e.target.files[0]);
+                    imageRider.onload = (e)=>{
+                        this.doctor.image = e.target.result;
+                    }
                 }
             },
             addDoct(){
                 axios.get('./api/login').then(resp => {
-                    for (let val of resp.data) {
-                        if(val.email === this.email){
+                    if(resp.data.length === 0){
+                        window.axios.post('./api/result', this.doctor)
+                            .then(function (response) {
+                                alert('success');
+                                window.location.href = '/login';
+                            })
+                            .catch(function (error) {
+                                alert(error);
+                            });
+                    }
+                    for (let i = 0; i < resp.data.length;i++) {
+                        console.log('last email - ' + resp.data[i].email);
+                        if(resp.data[i].email === this.doctor.email){
                             alert('There is email like that');
                             break;
                         }else{
-                            window.axios.post('./api/result',
-                                {
-                                    headers:{
-                                        'Content-type':'application/x-www-form-urlencoded'
-                                    },
-                                    name:this.name,
-                                    surname:this.surname,
-                                    email: this.email,
-                                    password: this.password,
-                                    speciality: this.speciality,
-                                    about: this.about,
-                                    image: this.image
-                                },)
-                                .then(function (response) {
-                                    alert('success');
-                                })
-                                .catch(function (error) {
-                                    alert(error);
-                                });
+                            if(i === resp.data.length-1){
+                                console.log('last email - ' + resp.data[i].email);
+                                window.axios.post('./api/result', this.doctor)
+                                    .then(function (response) {
+                                        alert('success');
+                                        window.location.href = '/login';
+                                    })
+                                    .catch(function (error) {
+                                        alert(error);
+                                    });
+                            }
                         }
                     }
                 });
