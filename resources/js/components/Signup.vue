@@ -34,20 +34,20 @@
                                     <div class="form-group">
                                         <label for="inputSpeciality" >Speciality</label>
                                         <select class="form-control" v-model="doctor.speciality" name="cars" id="inputSpeciality">
-                                            <option value="radiologist">Radiologist</option>
-                                            <option value="psychologist">Psychologist</option>
-                                            <option value="gynecologist">Gynecologist</option>
-                                            <option value="ophthalmologist">Ophthalmologist</option>
-                                            <option value="cardiologist">Cardiologist</option>
-                                            <option value="neonatologist">Neonatologist</option>
-                                            <option value="therapeutist">Therapeutist</option>
-                                            <option value="laboratory assistant">Laboratory assistant</option>
-                                            <option value="nephrologist">Nephrologist</option>
-                                            <option value="urologist">Urologist</option>
-                                            <option value="traumatologist-orthopedist">Traumatologist-orthopedist</option>
-                                            <option value="therapeutist">Therapeutist</option>
-                                            <option value="surgeon-vascular">Surgeon-vascular</option>
-                                            <option value="stomatologist">Stomatologist</option>
+                                            <option value="Radiologist">Radiologist</option>
+                                            <option value="Psychologist">Psychologist</option>
+                                            <option value="Gynecologist">Gynecologist</option>
+                                            <option value="Ophthalmologist">Ophthalmologist</option>
+                                            <option value="Cardiologist">Cardiologist</option>
+                                            <option value="Neonatologist">Neonatologist</option>
+                                            <option value="Therapeutist">Therapeutist</option>
+                                            <option value="Laboratory assistant">Laboratory assistant</option>
+                                            <option value="Nephrologist">Nephrologist</option>
+                                            <option value="Urologist">Urologist</option>
+                                            <option value="Traumatologist-orthopedist">Traumatologist-orthopedist</option>
+                                            <option value="Therapeutist">Therapeutist</option>
+                                            <option value="Surgeon-vascular">Surgeon-vascular</option>
+                                            <option value="Stomatologist">Stomatologist</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

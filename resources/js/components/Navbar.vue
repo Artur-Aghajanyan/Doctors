@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <router-link to="/" class="navbar-brand router">Home</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,10 @@
     z-index: 2;
     position: fixed;
     width: 100%;
+    -webkit-box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
+    -moz-box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
+    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
+    background: forestgreen;
 }
 #signup{
     border: 1px solid #845353;
