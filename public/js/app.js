@@ -1959,6 +1959,101 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Contact"
 });
@@ -7491,7 +7586,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.not-found[data-v-3d2ec509]{\n    background: url(" + escape(__webpack_require__(/*! ../../images/foto.png */ "./resources/images/foto.png")) + ") no-repeat;\n    width: 100%;\n    background-position: center;\n    height: 464px;\n}\n", ""]);
+exports.push([module.i, "\n.not-found[data-v-3d2ec509]{\r\n    background: url(" + escape(__webpack_require__(/*! ../../images/foto.png */ "./resources/images/foto.png")) + ") no-repeat;\r\n    width: 100%;\r\n    background-position: center;\r\n    height: 464px;\n}\r\n", ""]);
 
 // exports
 
@@ -39752,9 +39847,145 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Contact")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "mb-4" }, [
+      _c(
+        "h2",
+        { staticClass: "h1-responsive font-weight-bold text-center my-4" },
+        [_vm._v("Contact us")]
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-center w-responsive mx-auto mb-5" }, [
+        _vm._v(
+          "Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within\n        a matter of hours to help you."
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-9 mb-md-0 mb-5" }, [
+          _c(
+            "form",
+            {
+              attrs: {
+                id: "contact-form",
+                name: "contact-form",
+                action: "mail.php",
+                method: "POST"
+              }
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "md-form mb-0" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "name", name: "name" }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "name" } }, [
+                      _vm._v("Your name")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "md-form mb-0" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "email", name: "email" }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "email" } }, [
+                      _vm._v("Your email")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "md-form mb-0" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "subject", name: "subject" }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "subject" } }, [
+                      _vm._v("Subject")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "md-form" }, [
+                    _c("textarea", {
+                      staticClass: "form-control md-textarea",
+                      attrs: {
+                        type: "text",
+                        id: "message",
+                        name: "message",
+                        rows: "2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "message" } }, [
+                      _vm._v("Your message")
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-center text-md-left" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  onclick: "document.getElementById('contact-form').submit();"
+                }
+              },
+              [_vm._v("Send")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "status" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3 text-center" }, [
+          _c("ul", { staticClass: "list-unstyled mb-0" }, [
+            _c("li", [
+              _c("i", { staticClass: "fas fa-map-marker-alt fa-2x" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("San Francisco, CA 94126, USA")])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("i", { staticClass: "fas fa-phone mt-4 fa-2x" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("+ 01 234 567 89")])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("i", { staticClass: "fas fa-envelope mt-4 fa-2x" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("contact@mdbootstrap.com")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
