@@ -41,9 +41,10 @@ class PatientsController extends Controller
         $patient->name = $data['name'];
         $patient->surname = $data['surname'];
         $patient->phone = $data['phone'];
-        $patient->doctor = $data['doctor'];
+        $patient->doctor = $data['doctorName'];
         $patient->time = $data['time'];
         $patient->type = $data['type'];
+        $patient->date = $data['date'];
         $patient->save();
     }
 
@@ -95,4 +96,14 @@ class PatientsController extends Controller
         $data = PatientsModel::all();
         return $data;
     }
+    public function getDataForTable(Request $request){
+        $req = $request->all();
+        $data = PatientsModel::get()->where('doctor',$req['doctor']);
+        return $data;
+    }
+    public function getDataTable(){
+        $data = PatientsModel::all();
+        return $data;
+    }
+
 }

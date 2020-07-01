@@ -8,4 +8,6 @@ class PatientsModel extends Model
 {
     //
     protected $table = 'data';
+    protected $fillable = array('name', 'surname', 'phone', 'doctor', 'time', 'type', 'date');
+
 }

@@ -22,6 +22,7 @@ class CreateDataTable extends Migration
             $table->string('time');
             $table->string('type');
             $table->string('date');
+            $table->timestamps();
         });
     }
 

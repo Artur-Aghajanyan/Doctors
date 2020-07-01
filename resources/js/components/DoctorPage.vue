@@ -30,29 +30,24 @@
             <div class="col-md-9" style="background: white">
                 <div class="profile-content">
                     <div class="profile-content">
-<!--                        <date-picker v-model="date" :config="{format: 'DD/MM/YYYY'}"></date-picker>-->
-<!--                        <button id="datepicker-valid" type="button" aria-haspopup="dialog" aria-expanded="false" class="btn h-auto"><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" alt="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-calendar b-icon bi"><g><path fill-rule="evenodd" d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"></path><path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z"></path></g></svg></button>-->
                         <v-date-picker
                             mode='single'
                             tint-color='#f142f4'
                             v-model='dates'
                             :theme-styles='themeStyles'
                             class="theme-styles"
-                            :min-date='new Date()'
                             is-double-paned
                             locale="en"
                             is-inline>
                         </v-date-picker>
-                        <br>
-<!--                        <button class="btn btn-success" @click="getDate">Look</button>-->
-                        <br>
-                        <br>
-                        <label class="table-lable">Table of Counseling</label>
+                        <br><br><br>
+                        <label class="table-label">Table of Counseling</label>
                         <table  class="table">
                             <tr style="font-family: sans-serif;">
                                 <th class="number">N</th>
-                                <th>Time</th>
-                                <th>Name of patient</th>
+                                <th class="time">Time</th>
+                                <th class="name-of-patient">Name of patient</th>
+                                <th class="phone">Phone</th>
                             </tr>
                             <tr v-for="(timeItem,index) in dataCounseling"
                                 v-if="timeItem.date === dates.toLocaleDateString() &&
@@ -60,15 +55,17 @@
                                 <td>{{index+1}}</td>
                                 <td>{{timeItem.time}}</td>
                                 <td>{{dataCounseling[index].name}} {{dataCounseling[index].surname}}</td>
+                                <td>{{dataCounseling[index].phone}}</td>
                             </tr>
                         </table>
                         <br>
-                        <label class="table-lable">Sick of Patients Table</label>
+                        <label class="table-label">Sick of Patients Table</label>
                         <table class="table">
                             <tr style="font-family: sans-serif;">
                                 <th class="number">N</th>
-                                <th>Time</th>
-                                <th>Name of patient</th>
+                                <th class="time">Time</th>
+                                <th class="name-of-patient">Name of patient</th>
+                                <th class="phone">Phone</th>
                             </tr>
                             <tr v-for="(timeItem,index) in dataPatient"
                                 v-if="timeItem.date === dates.toLocaleDateString() &&
@@ -76,6 +73,7 @@
                                     <td>{{index+1}}</td>
                                     <td>{{timeItem.time}}</td>
                                     <td>{{dataPatient[index].name}} {{dataPatient[index].surname}}</td>
+                                    <td>{{dataPatient[index].phone}}</td>
                             </tr>
                         </table>
                     </div>
@@ -97,7 +95,7 @@
         data(){
             return{
                 selectedDate: null,
-                dates: new Date(),
+                dates: null,
                 themeStyles: {
                     wrapper: {
                         border: '1',
@@ -138,20 +136,19 @@
         },
         watch: {
             dates:function(){
-                window.axios.get('./api/patient-data')
+                window.axios.get('./api/data_for_table')
                     .then(resp => {
                         var app =this;
                         let doctorName = this.doctor.name + ' ' + this.doctor.surname;
                         for(let doctor of resp.data){
+                            console.log(resp.data)
                             if(doctorName === doctor.doctor){
                                 if(doctor.type === 'Counseling')
                                     app.dataCounseling = resp.data;
                                 else
                                     app.dataPatient = resp.data;
                             }
-                            console.log(typeof doctor.time,doctor.time)
                         }
-                        console.log(this.dates.toLocaleDateString());
                     })
                     .catch(function (error) {
                         alert(error);
@@ -182,14 +179,22 @@
 </script>
 
 <style scoped>
-    table tr th{
-        width: 41%;
-    }
-    table .number{
-        width: 8%;
-    }
+
     .vc-container{
         width: 100%;
+    }
+
+    .number{
+        width: 6%;
+    }
+    .time{
+        width: 15%;
+    }
+    .name-of-patient{
+        width: 25%;
+    }
+    .phone{
+        width: 25%;
     }
     /*   **table **   */
     .table td {
@@ -201,7 +206,7 @@
         background: lightgray;
         border: 1px solid black;
     }
-    .table-lable{
+    .table-label{
         color: #4cb1d2;
         text-decoration: underline;
         font-size: 30px;

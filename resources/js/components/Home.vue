@@ -93,6 +93,7 @@
                     image:image,
                     id: id
                 }))
+                window.location.href = `/line_up:${JSON.parse(localStorage.getItem('DoctorData')).id}`;
             }
         }
     }

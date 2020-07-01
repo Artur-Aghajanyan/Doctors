@@ -21,8 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/result','SignupController@store');
 Route::post('/check','SignupController@getData');
 Route::post('/patient-data-add','SignupController@store');
+Route::post('/patient-data','PatientsController@getDataForTable');
+Route::post('/patient-data-post','PatientsController@store');
 
 Route::get('/login', 'LoginController@getData');
 Route::get('/user', 'UserPageController@getAllData');
-Route::get('/patient-data','PatientsController@getData');
-
+Route::get('/data_for_table','PatientsController@getDataTable');

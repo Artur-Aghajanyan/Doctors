@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Home from "./components/Home";
+import DoctorPageForUser from "./components/DoctorPageForUser";
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -20,6 +21,7 @@ export default new VueRouter({
         {path: '/contact', component: Contact},
         {path: '/about', component: About},
         {path: '/', component: Home},
+        {path: `/line_up:id`,name: 'line_up' ,component: DoctorPageForUser},
     ],
     mode: 'history'
 })

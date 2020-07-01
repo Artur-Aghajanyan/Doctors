@@ -1982,16 +1982,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css */ "./node_modules/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css");
 /* harmony import */ var pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_3__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-//
-//
 //
 //
 //
@@ -2088,7 +2084,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
   data: function data() {
     return {
       selectedDate: null,
-      dates: new Date(),
+      dates: null,
       themeStyles: {
         wrapper: {
           border: '1'
@@ -2132,7 +2128,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
     dates: function dates() {
       var _this = this;
 
-      window.axios.get('./api/patient-data').then(function (resp) {
+      window.axios.get('./api/data_for_table').then(function (resp) {
         var app = _this;
         var doctorName = _this.doctor.name + ' ' + _this.doctor.surname;
 
@@ -2142,20 +2138,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var doctor = _step.value;
+            console.log(resp.data);
 
             if (doctorName === doctor.doctor) {
               if (doctor.type === 'Counseling') app.dataCounseling = resp.data;else app.dataPatient = resp.data;
             }
-
-            console.log(_typeof(doctor.time), doctor.time);
           }
         } catch (err) {
           _iterator.e(err);
         } finally {
           _iterator.f();
         }
-
-        console.log(_this.dates.toLocaleDateString());
       })["catch"](function (error) {
         alert(error);
       });
@@ -2182,6 +2175,295 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DoctorPageForUser.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(Vue) {/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
+/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css */ "./node_modules/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css");
+/* harmony import */ var pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_1__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+Vue.use(v_calendar__WEBPACK_IMPORTED_MODULE_0___default.a);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "DoctorPageForUser",
+  data: function data() {
+    return {
+      dataTable: [],
+      name: JSON.parse(localStorage.getItem('DoctorData')).name,
+      surname: JSON.parse(localStorage.getItem('DoctorData')).surname,
+      speciality: JSON.parse(localStorage.getItem('DoctorData')).speciality,
+      about: JSON.parse(localStorage.getItem('DoctorData')).about,
+      image: './images/' + JSON.parse(localStorage.getItem('DoctorData')).image,
+      dates: new Date(),
+      themeStyles: {
+        wrapper: {
+          border: '1'
+        },
+        header: {
+          color: '#fafafa',
+          backgroundColor: '#f142f4',
+          borderColor: '#404c59',
+          borderWidth: '1px 1px 0 1px'
+        },
+        headerVerticalDivider: {
+          borderLeft: '1px solid #404c59'
+        },
+        weekdays: {
+          color: '#ffffff',
+          backgroundColor: '#f142f4',
+          borderColor: '#ff0098',
+          borderWidth: '0 1px',
+          padding: '5px 0 10px 0'
+        },
+        weekdaysVerticalDivider: {
+          borderLeft: '1px solid #404c59'
+        },
+        weeks: {
+          border: '1px solid #dadada'
+        }
+      },
+      counselingVal: Array(8),
+      sickPatientVal: Array(4),
+      counseling: ["09:00 - 09:30", "09:30 - 10:00", "10:00 - 10:30", "10:30 - 11:00", "11:00 - 11:30", "11:30 - 12:00", "12:00 - 12:30", "12:30 - 13:00"],
+      sickPatient: ["14:00 - 15:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00"],
+      counselingType: 'No Selected',
+      sickPatientType: 'No Selected',
+      patient: {
+        name: '',
+        surname: '',
+        phone: null,
+        time: '',
+        date: '',
+        doctorName: '',
+        type: ''
+      },
+      resCheck: true
+    };
+  },
+  methods: {
+    Register: function Register() {
+      this.patient.date = this.dates.toLocaleDateString();
+      this.patient.doctorName = JSON.parse(localStorage.getItem('DoctorData')).name + ' ' + JSON.parse(localStorage.getItem('DoctorData')).surname;
+
+      if (this.patient.name === '') {
+        document.getElementById('inputName').style.borderColor = 'darkred';
+      } else {
+        document.getElementById('inputName').style.borderColor = 'grey';
+      }
+
+      if (this.patient.surname === '') {
+        document.getElementById('inputSurname').style.borderColor = 'darkred';
+      } else {
+        document.getElementById('inputSurname').style.borderColor = 'grey';
+      }
+
+      if (this.patient.phone === null) {
+        document.getElementById('inputPhone').style.borderColor = 'darkred';
+      } else {
+        document.getElementById('inputPhone').style.borderColor = 'grey';
+      }
+
+      if (this.counselingType === 'No Selected' && this.sickPatientType === 'No Selected') {
+        document.getElementById('inputTimeSickPatient').style.borderColor = 'darkred';
+        document.getElementById('inputTimeCounseling').style.borderColor = 'darkred';
+      } else {
+        document.getElementById('inputTimeSickPatient').style.borderColor = 'grey';
+        document.getElementById('inputTimeCounseling').style.borderColor = 'grey';
+
+        if (this.counselingType !== 'No Selected') {
+          this.patient.time = this.counselingType;
+          this.patient.type = 'Counseling';
+        } else {
+          this.patient.time = this.sickPatientType;
+          this.patient.type = 'Sick Patient';
+        }
+      }
+
+      if (this.patient.name !== '' && this.patient.surname !== '' && this.patient.phone !== null && this.patient.time !== '' && this.patient.date !== '' && this.patient.doctorName !== '' && this.patient.type !== '') {
+        var app = this;
+        window.axios.post('./api/patient-data', {
+          doctor: app.patient.doctorName
+        }).then(function (resp) {
+          if (resp.data) {
+            var _iterator = _createForOfIteratorHelper(resp.data),
+                _step;
+
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                var item = _step.value;
+
+                if (item.date === app.patient.date && item.time === app.patient.time) {
+                  alert(app.patient.date + '  ' + app.patient.time + ' date busy !!!\n Please choose another date');
+                  app.resCheck = false;
+                  break;
+                } else {
+                  app.resCheck = true;
+                }
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+          }
+
+          if (app.resCheck === true) {
+            window.axios.post('./api/patient-data-post', {
+              name: app.patient.name,
+              surname: app.patient.surname,
+              phone: app.patient.phone,
+              time: app.patient.time,
+              date: app.patient.date,
+              doctorName: app.patient.doctorName,
+              type: app.patient.type
+            }).then(function (response) {
+              alert('success');
+              window.location.reload(true);
+            })["catch"](function (error) {
+              alert(error);
+            });
+          }
+        })["catch"](function (error) {
+          alert(error);
+        });
+      }
+    },
+    getCounsVal: function getCounsVal(e) {
+      this.counselingType = e.target.value;
+      this.sickPatientType = 'No Selected';
+    },
+    getSickVal: function getSickVal(e) {
+      this.sickPatientType = e.target.value;
+      this.counselingType = 'No Selected';
+    }
+  }
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js")))
 
 /***/ }),
 
@@ -2275,6 +2557,7 @@ __webpack_require__.r(__webpack_exports__);
         image: image,
         id: id
       }));
+      window.location.href = "/line_up:".concat(JSON.parse(localStorage.getItem('DoctorData')).id);
     }
   }
 });
@@ -7075,7 +7358,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntable tr th[data-v-6862d40e]{\n    width: 41%;\n}\ntable .number[data-v-6862d40e]{\n    width: 8%;\n}\n.vc-container[data-v-6862d40e]{\n    width: 100%;\n}\n/*   **table **   */\n.table td[data-v-6862d40e] {\n    border: 1px solid black;\n    font-weight: 800;\n    font-size: 17px;\n}\n.table tr th[data-v-6862d40e]{\n    background: lightgray;\n    border: 1px solid black;\n}\n.table-lable[data-v-6862d40e]{\n    color: #4cb1d2;\n    text-decoration: underline;\n    font-size: 30px;\n}\n\n/*   **end-table **   */\nbody[data-v-6862d40e] {\n    background: #F1F3FA;\n}\n\n/* Profile container */\n.profile[data-v-6862d40e] {\n    margin: 20px 0;\n}\n.container[data-v-6862d40e]{\n    background: #dedddd;\n    padding-bottom: 15px;\n    text-align: center;\n}\n\n/* Profile sidebar */\n.profile-sidebar[data-v-6862d40e] {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    margin-bottom: 10px;\n}\n.profile-userpic[data-v-6862d40e]{\n    text-align: center;\n}\n.profile-userpic img[data-v-6862d40e] {\n    float: none;\n    margin: 0 auto;\n    width: 50%;\n    height: 50%;\n    border-radius: 50% !important;\n}\n.profile-usertitle[data-v-6862d40e] {\n    text-align: center;\n    margin-top: 20px;\n}\n.col-md-3[data-v-6862d40e]{\n    border-radius: 15px;\n}\n.profile-usertitle-name[data-v-6862d40e] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.about[data-v-6862d40e] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.profile-usertitle-speciality[data-v-6862d40e] {\n    text-transform: uppercase;\n    color: #5b9bd1;\n    font-size: 12px;\n    font-weight: 600;\n    margin-bottom: 15px;\n}\n.profile-usermenu[data-v-6862d40e] {\n    text-align: center;\n    margin-top: 30px;\n}\n.profile-usermenu ul li[data-v-6862d40e] {\n    border-bottom: 1px solid #f0f4f7;\n}\n.profile-usermenu ul li[data-v-6862d40e]:last-child {\n    border-bottom: none;\n}\n.profile-usermenu ul li a[data-v-6862d40e] {\n    color: #93a3b5;\n    font-size: 14px;\n    font-weight: 400;\n}\n.profile-usermenu ul li a i[data-v-6862d40e] {\n    margin-right: 8px;\n    font-size: 14px;\n}\n.profile-usermenu ul li a[data-v-6862d40e]:hover {\n    background-color: #fafcfd;\n    color: #5b9bd1;\n}\n.profile-usermenu ul li.active[data-v-6862d40e] {\n    border-bottom: none;\n}\n.profile-usermenu ul li.active a[data-v-6862d40e] {\n    color: #5b9bd1;\n    background-color: #f6f9fb;\n    border-left: 2px solid #5b9bd1;\n    margin-left: -2px;\n}\n\n/* Profile Content */\n.profile-content[data-v-6862d40e] {\n    padding: 20px;\n    background: #fff;\n    min-height: 460px;\n}\n", ""]);
+exports.push([module.i, "\n.vc-container[data-v-6862d40e]{\n    width: 100%;\n}\n.number[data-v-6862d40e]{\n    width: 6%;\n}\n.time[data-v-6862d40e]{\n    width: 15%;\n}\n.name-of-patient[data-v-6862d40e]{\n    width: 25%;\n}\n.phone[data-v-6862d40e]{\n    width: 25%;\n}\n/*   **table **   */\n.table td[data-v-6862d40e] {\n    border: 1px solid black;\n    font-weight: 800;\n    font-size: 17px;\n}\n.table tr th[data-v-6862d40e]{\n    background: lightgray;\n    border: 1px solid black;\n}\n.table-label[data-v-6862d40e]{\n    color: #4cb1d2;\n    text-decoration: underline;\n    font-size: 30px;\n}\n\n/*   **end-table **   */\nbody[data-v-6862d40e] {\n    background: #F1F3FA;\n}\n\n/* Profile container */\n.profile[data-v-6862d40e] {\n    margin: 20px 0;\n}\n.container[data-v-6862d40e]{\n    background: #dedddd;\n    padding-bottom: 15px;\n    text-align: center;\n}\n\n/* Profile sidebar */\n.profile-sidebar[data-v-6862d40e] {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    margin-bottom: 10px;\n}\n.profile-userpic[data-v-6862d40e]{\n    text-align: center;\n}\n.profile-userpic img[data-v-6862d40e] {\n    float: none;\n    margin: 0 auto;\n    width: 50%;\n    height: 50%;\n    border-radius: 50% !important;\n}\n.profile-usertitle[data-v-6862d40e] {\n    text-align: center;\n    margin-top: 20px;\n}\n.col-md-3[data-v-6862d40e]{\n    border-radius: 15px;\n}\n.profile-usertitle-name[data-v-6862d40e] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.about[data-v-6862d40e] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.profile-usertitle-speciality[data-v-6862d40e] {\n    text-transform: uppercase;\n    color: #5b9bd1;\n    font-size: 12px;\n    font-weight: 600;\n    margin-bottom: 15px;\n}\n.profile-usermenu[data-v-6862d40e] {\n    text-align: center;\n    margin-top: 30px;\n}\n.profile-usermenu ul li[data-v-6862d40e] {\n    border-bottom: 1px solid #f0f4f7;\n}\n.profile-usermenu ul li[data-v-6862d40e]:last-child {\n    border-bottom: none;\n}\n.profile-usermenu ul li a[data-v-6862d40e] {\n    color: #93a3b5;\n    font-size: 14px;\n    font-weight: 400;\n}\n.profile-usermenu ul li a i[data-v-6862d40e] {\n    margin-right: 8px;\n    font-size: 14px;\n}\n.profile-usermenu ul li a[data-v-6862d40e]:hover {\n    background-color: #fafcfd;\n    color: #5b9bd1;\n}\n.profile-usermenu ul li.active[data-v-6862d40e] {\n    border-bottom: none;\n}\n.profile-usermenu ul li.active a[data-v-6862d40e] {\n    color: #5b9bd1;\n    background-color: #f6f9fb;\n    border-left: 2px solid #5b9bd1;\n    margin-left: -2px;\n}\n\n/* Profile Content */\n.profile-content[data-v-6862d40e] {\n    padding: 20px;\n    background: #fff;\n    min-height: 460px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* table */\ntable[data-v-e77383aa]{\n    margin-top: 25px;\n}\ntable tr th[data-v-e77383aa]{\n    width: 41%;\n}\ntable .number[data-v-e77383aa]{\n    width: 8%;\n}\n.vc-container[data-v-e77383aa]{\n    width: 100%;\n}\n/*   **table **   */\n.table td[data-v-e77383aa] {\n    border: 1px solid black;\n    font-weight: 800;\n    font-size: 17px;\n}\n.table tr th[data-v-e77383aa]{\n    background: lightgray;\n    border: 1px solid black;\n}\n.table-label[data-v-e77383aa]{\n    color: #4cb1d2;\n    text-decoration: underline;\n    font-size: 30px;\n}\n/*END table */\n.vc-container[data-v-e77383aa]{\n    width: 100%;\n}\n.form-group[data-v-e77383aa]{\n    display: grid;\n    grid-template-columns: auto auto;\n}\n.form-group div[data-v-e77383aa]{\n    width: 70%;\n    margin: 40px auto;\n}\n.form-group div label[data-v-e77383aa]{\n    color: blueviolet;\n    font-weight: 900;\n    font-size: 20px;\n}\n@media only screen and (max-width:1000px){\n.form-group[data-v-e77383aa]{\n        display: block;\n}\n}\n/*   **end-table **   */\nbody[data-v-e77383aa] {\n    background: #F1F3FA;\n}\n\n/* Profile container */\n.profile[data-v-e77383aa] {\n    margin: 20px 0;\n}\n.container[data-v-e77383aa]{\n    background: #dedddd;\n    padding-bottom: 15px;\n    text-align: center;\n}\n\n/* Profile sidebar */\n.profile-sidebar[data-v-e77383aa] {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    margin-bottom: 10px;\n}\n.profile-userpic[data-v-e77383aa]{\n    text-align: center;\n}\n.profile-userpic img[data-v-e77383aa] {\n    float: none;\n    margin: 0 auto;\n    width: 50%;\n    height: 50%;\n    border-radius: 50% !important;\n}\n.profile-usertitle[data-v-e77383aa] {\n    text-align: center;\n    margin-top: 20px;\n}\n.col-md-3[data-v-e77383aa]{\n    border-radius: 15px;\n}\n.profile-usertitle-name[data-v-e77383aa] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.about[data-v-e77383aa] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.profile-usertitle-speciality[data-v-e77383aa] {\n    text-transform: uppercase;\n    color: #5b9bd1;\n    font-size: 12px;\n    font-weight: 600;\n    margin-bottom: 15px;\n}\n.profile-usermenu[data-v-e77383aa] {\n    text-align: center;\n    margin-top: 30px;\n}\n.profile-usermenu ul li[data-v-e77383aa] {\n    border-bottom: 1px solid #f0f4f7;\n}\n.profile-usermenu ul li[data-v-e77383aa]:last-child {\n    border-bottom: none;\n}\n.profile-usermenu ul li a[data-v-e77383aa] {\n    color: #93a3b5;\n    font-size: 14px;\n    font-weight: 400;\n}\n.profile-usermenu ul li a i[data-v-e77383aa] {\n    margin-right: 8px;\n    font-size: 14px;\n}\n.profile-usermenu ul li a[data-v-e77383aa]:hover {\n    background-color: #fafcfd;\n    color: #5b9bd1;\n}\n.profile-usermenu ul li.active[data-v-e77383aa] {\n    border-bottom: none;\n}\n.profile-usermenu ul li.active a[data-v-e77383aa] {\n    color: #5b9bd1;\n    background-color: #f6f9fb;\n    border-left: 2px solid #5b9bd1;\n    margin-left: -2px;\n}\n\n/* Profile Content */\n.profile-content[data-v-e77383aa] {\n    padding: 20px;\n    background: #fff;\n    min-height: 460px;\n}\n", ""]);
 
 // exports
 
@@ -7132,7 +7434,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.navbar[data-v-6dde423b]{\n    z-index: 2;\n    position: fixed;\n    width: 100%;\n    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);\n    background: forestgreen;\n}\n#signup[data-v-6dde423b]{\n    border: 1px solid #845353;\n    padding: 12px;\n    color: white;\n    border-radius: 10px;\n    background: darkred;\n    font-size: 15px;\n    margin-right: 25px;\n}\n#signup[data-v-6dde423b]:hover{\n        background: #3f9ae5;\n        color: darkred;\n        border: 1px solid white;\n}\n#login[data-v-6dde423b]{\n        border: 1px solid #e2e2e2;\n        padding: 12px;\n        color: white;\n        border-radius: 10px;\n        background: #4c86af;\n        font-size: 15px;\n        margin-right: 25px;\n}\n#login[data-v-6dde423b]:hover{\n        border: 1px solid #0e340e;\n        padding: 12px;\n        color: darkred;\n        border-radius: 10px;\n        background: forestgreen;\n        font-size: 15px;\n        margin-right: 25px;\n}\n.router[data-v-6dde423b]{\n        margin-left: 25px;\n}\n.router[data-v-6dde423b]:hover{\n        color: darkred;\n        text-decoration: underline;\n}\n", ""]);
+exports.push([module.i, "\n.navbar[data-v-6dde423b]{\r\n    z-index: 2;\r\n    position: fixed;\r\n    width: 100%;\r\n    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);\r\n    background: forestgreen;\n}\n#signup[data-v-6dde423b]{\r\n    border: 1px solid #845353;\r\n    padding: 12px;\r\n    color: white;\r\n    border-radius: 10px;\r\n    background: darkred;\r\n    font-size: 15px;\r\n    margin-right: 25px;\n}\n#signup[data-v-6dde423b]:hover{\r\n        background: #3f9ae5;\r\n        color: darkred;\r\n        border: 1px solid white;\n}\n#login[data-v-6dde423b]{\r\n        border: 1px solid #e2e2e2;\r\n        padding: 12px;\r\n        color: white;\r\n        border-radius: 10px;\r\n        background: #4c86af;\r\n        font-size: 15px;\r\n        margin-right: 25px;\n}\n#login[data-v-6dde423b]:hover{\r\n        border: 1px solid #0e340e;\r\n        padding: 12px;\r\n        color: darkred;\r\n        border-radius: 10px;\r\n        background: forestgreen;\r\n        font-size: 15px;\r\n        margin-right: 25px;\n}\n.router[data-v-6dde423b]{\r\n        margin-left: 25px;\n}\n.router[data-v-6dde423b]:hover{\r\n        color: darkred;\r\n        text-decoration: underline;\n}\r\n", ""]);
 
 // exports
 
@@ -38386,6 +38688,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=style&index=0&id=f2b6376c&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Home.vue?vue&type=style&index=0&id=f2b6376c&scoped=true&lang=css& ***!
@@ -39380,9 +39712,9 @@ var render = function() {
             _c("div", { staticClass: "profile-usertitle-speciality" }, [
               _vm._m(2),
               _vm._v(
-                "\n                            " +
+                "\n                        " +
                   _vm._s(_vm.doctor.speciality) +
-                  "\n                        "
+                  "\n                    "
               )
             ])
           ]),
@@ -39390,9 +39722,9 @@ var render = function() {
           _c("div", { staticClass: "profile-usermenu" }, [
             _vm._m(3),
             _vm._v(
-              "\n                        " +
+              "\n                    " +
                 _vm._s(_vm.doctor.about) +
-                "\n                    "
+                "\n                "
             )
           ])
         ])
@@ -39413,7 +39745,6 @@ var render = function() {
                     mode: "single",
                     "tint-color": "#f142f4",
                     "theme-styles": _vm.themeStyles,
-                    "min-date": new Date(),
                     "is-double-paned": "",
                     locale: "en",
                     "is-inline": ""
@@ -39428,12 +39759,10 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("br"),
-                _vm._v(" "),
+                _c("br"),
                 _c("br"),
                 _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("label", { staticClass: "table-lable" }, [
+                _c("label", { staticClass: "table-label" }, [
                   _vm._v("Table of Counseling")
                 ]),
                 _vm._v(" "),
@@ -39457,6 +39786,10 @@ var render = function() {
                                   " " +
                                   _vm._s(_vm.dataCounseling[index].surname)
                               )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.dataCounseling[index].phone))
                             ])
                           ])
                         : _vm._e()
@@ -39467,7 +39800,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _c("label", { staticClass: "table-lable" }, [
+                _c("label", { staticClass: "table-label" }, [
                   _vm._v("Sick of Patients Table")
                 ]),
                 _vm._v(" "),
@@ -39491,6 +39824,10 @@ var render = function() {
                                   " " +
                                   _vm._s(_vm.dataPatient[index].surname)
                               )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.dataPatient[index].phone))
                             ])
                           ])
                         : _vm._e()
@@ -39545,9 +39882,11 @@ var staticRenderFns = [
     return _c("tr", { staticStyle: { "font-family": "sans-serif" } }, [
       _c("th", { staticClass: "number" }, [_vm._v("N")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Time")]),
+      _c("th", { staticClass: "time" }, [_vm._v("Time")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Name of patient")])
+      _c("th", { staticClass: "name-of-patient" }, [_vm._v("Name of patient")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "phone" }, [_vm._v("Phone")])
     ])
   },
   function() {
@@ -39557,9 +39896,368 @@ var staticRenderFns = [
     return _c("tr", { staticStyle: { "font-family": "sans-serif" } }, [
       _c("th", { staticClass: "number" }, [_vm._v("N")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Time")]),
+      _c("th", { staticClass: "time" }, [_vm._v("Time")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Name of patient")])
+      _c("th", { staticClass: "name-of-patient" }, [_vm._v("Name of patient")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "phone" }, [_vm._v("Phone")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row profile" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "profile-sidebar" }, [
+          _c("div", { staticClass: "profile-userpic" }, [
+            _c("img", {
+              staticClass: "img-responsive",
+              attrs: { src: _vm.image, alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "profile-usertitle" }, [
+            _c("div", { staticClass: "profile-usertitle-name" }, [
+              _c("h6", [_vm._m(0), _vm._v(" " + _vm._s(_vm.name))]),
+              _vm._v(" "),
+              _c("h6", [_vm._m(1), _vm._v(" " + _vm._s(_vm.surname))])
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "profile-usertitle-speciality" }, [
+              _vm._m(2),
+              _vm._v(
+                "\n                            " +
+                  _vm._s(_vm.speciality) +
+                  "\n                        "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "profile-usermenu" }, [
+            _vm._m(3),
+            _vm._v(
+              "\n                        " +
+                _vm._s(_vm.about) +
+                "\n                    "
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-9", staticStyle: { background: "white" } },
+        [
+          _c("div", { staticClass: "profile-content" }, [
+            _c(
+              "div",
+              { staticClass: "profile-content" },
+              [
+                _c("v-date-picker", {
+                  staticClass: "theme-styles",
+                  attrs: {
+                    required: "",
+                    mode: "single",
+                    "tint-color": "#f142f4",
+                    "theme-styles": _vm.themeStyles,
+                    "min-date": new Date(),
+                    "is-double-paned": "",
+                    locale: "en",
+                    "is-inline": ""
+                  },
+                  model: {
+                    value: _vm.dates,
+                    callback: function($$v) {
+                      _vm.dates = $$v
+                    },
+                    expression: "dates"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", { attrs: { id: "option_1" } }, [
+                    _c("label", { attrs: { for: "inputTimeCounseling" } }, [
+                      _vm._v("Counseling")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        staticClass: "form-control",
+                        attrs: {
+                          name: "cars",
+                          id: "inputTimeCounseling",
+                          required: ""
+                        },
+                        on: { change: _vm.getCounsVal }
+                      },
+                      [
+                        _c("option", { attrs: { value: "No Selected" } }, [
+                          _vm._v("No Selected")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "09:00 - 09:30" } }, [
+                          _vm._v("09:00 - 09:30")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "09:30 - 10:00" } }, [
+                          _vm._v("09:30 - 10:00")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "10:00 - 10:30" } }, [
+                          _vm._v("10:00 - 10:30")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "10:30 - 11:00" } }, [
+                          _vm._v("10:30 - 11:00")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "11:00 - 11:30" } }, [
+                          _vm._v("11:00 - 11:30")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "11:30 - 12:00" } }, [
+                          _vm._v("11:30 - 12:00")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "12:00 - 12:30" } }, [
+                          _vm._v("12:00 - 12:30")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "12:30 - 13:00" } }, [
+                          _vm._v("12:30 - 13:00")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm.counselingType !== "No Selected"
+                      ? _c("span", [_vm._v(_vm._s(_vm.counselingType))])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "inputName" } }, [
+                      _vm._v("Name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.patient.name,
+                          expression: "patient.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputName",
+                        placeholder: "name",
+                        required: ""
+                      },
+                      domProps: { value: _vm.patient.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.patient, "name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "inputPhone" } }, [
+                      _vm._v("Phone")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.patient.phone,
+                          expression: "patient.phone"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "tel",
+                        pattern: "[+]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}",
+                        id: "inputPhone",
+                        placeholder: "+374-55-55-55",
+                        required: ""
+                      },
+                      domProps: { value: _vm.patient.phone },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.patient, "phone", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { attrs: { id: "option_2" } }, [
+                    _c("label", { attrs: { for: "inputTimeSickPatient" } }, [
+                      _vm._v("Sick Patient")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        staticClass: "form-control",
+                        attrs: { name: "cars", id: "inputTimeSickPatient" },
+                        on: { change: _vm.getSickVal }
+                      },
+                      [
+                        _c("option", { attrs: { value: "No Selected" } }, [
+                          _vm._v("No Selected")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "14:00 - 15:00" } }, [
+                          _vm._v("14:00 - 15:00")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "15:00 - 16:00" } }, [
+                          _vm._v("15:00 - 16:00")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "16:00 - 17:00" } }, [
+                          _vm._v("16:00 - 17:00")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "17:00 - 18:00" } }, [
+                          _vm._v("17:00 - 18:00")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm.sickPatientType !== "No Selected"
+                      ? _c("span", [_vm._v(_vm._s(_vm.sickPatientType))])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "inputSurname" } }, [
+                      _vm._v("Surname")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.patient.surname,
+                          expression: "patient.surname"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputSurname",
+                        placeholder: "surname",
+                        required: ""
+                      },
+                      domProps: { value: _vm.patient.surname },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.patient, "surname", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: { click: _vm.Register }
+                      },
+                      [_vm._v("Register")]
+                    )
+                  ])
+                ])
+              ],
+              1
+            )
+          ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("b", [_c("u", [_vm._v("Name:")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("b", [_c("u", [_vm._v("Surname:")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h6", [
+      _c("b", { staticStyle: { color: "black" } }, [
+        _c("u", [_vm._v("Speciality")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h6", { staticClass: "about" }, [
+      _c("b", [_c("u", [_vm._v("About me")])])
     ])
   }
 ]
@@ -55978,6 +56676,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DoctorPageForUser.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/DoctorPageForUser.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DoctorPageForUser_vue_vue_type_template_id_e77383aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true& */ "./resources/js/components/DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true&");
+/* harmony import */ var _DoctorPageForUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DoctorPageForUser.vue?vue&type=script&lang=js& */ "./resources/js/components/DoctorPageForUser.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css& */ "./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _DoctorPageForUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DoctorPageForUser_vue_vue_type_template_id_e77383aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DoctorPageForUser_vue_vue_type_template_id_e77383aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "e77383aa",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DoctorPageForUser.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/DoctorPageForUser.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/DoctorPageForUser.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./DoctorPageForUser.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css& ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=style&index=0&id=e77383aa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_style_index_0_id_e77383aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_template_id_e77383aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DoctorPageForUser.vue?vue&type=template&id=e77383aa&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_template_id_e77383aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DoctorPageForUser_vue_vue_type_template_id_e77383aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Home.vue":
 /*!******************************************!*\
   !*** ./resources/js/components/Home.vue ***!
@@ -56345,8 +57130,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Contact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Contact */ "./resources/js/components/Contact.vue");
 /* harmony import */ var _components_About__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/About */ "./resources/js/components/About.vue");
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Home */ "./resources/js/components/Home.vue");
+/* harmony import */ var _components_DoctorPageForUser__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/DoctorPageForUser */ "./resources/js/components/DoctorPageForUser.vue");
 
 __webpack_provided_window_dot_Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 
 
 
@@ -56380,6 +57167,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   }, {
     path: '/',
     component: _components_Home__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }, {
+    path: "/line_up:id",
+    name: 'line_up',
+    component: _components_DoctorPageForUser__WEBPACK_IMPORTED_MODULE_9__["default"]
   }],
   mode: 'history'
 })); //
