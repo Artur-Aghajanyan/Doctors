@@ -98,7 +98,7 @@ import axios from 'axios
                     password:'',
                     about:'',
                     image:'',
-                    speciality:''
+                    speciality:'',
                 },
             }
         },
@@ -118,6 +118,7 @@ import axios from 'axios
                 }
             },
             addDoct(){
+                var app = this;
                 axios.get('./api/login').then(resp => {
                     if(resp.data.length === 0){
                         window.axios.post('./api/result', this.doctor)
@@ -130,13 +131,11 @@ import axios from 'axios
                             });
                     }
                     for (let i = 0; i < resp.data.length;i++) {
-                        console.log('last email - ' + resp.data[i].email);
                         if(resp.data[i].email === this.doctor.email){
                             alert('There is email like that');
                             break;
                         }else{
                             if(i === resp.data.length-1){
-                                console.log('last email - ' + resp.data[i].email);
                                 window.axios.post('./api/result', this.doctor)
                                     .then(function (response) {
                                         alert('success');

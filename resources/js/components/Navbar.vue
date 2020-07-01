@@ -32,7 +32,9 @@
 <script>
     import Vue from 'vue';
     import VueCookies from 'vue-cookies';
+    import VueSession from 'vue-session';
 
+    Vue.use(VueSession)
     Vue.use(VueCookies);
     export default {
         name: "Navbar",
@@ -45,7 +47,10 @@
             logout: function(){
                 Vue.$cookies.set('id', null, 60 * 60 * 24)
                     .set('login', false, 60 * 60 * 24);
-                window.location.href = '/login';
+                this.$session.start()
+                this.$session.remove('doctor')
+                console.log(this.$session.get('doctor'))
+                // window.location.href = '/login';
             }
         }
     }

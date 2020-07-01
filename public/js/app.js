@@ -1982,6 +1982,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css */ "./node_modules/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css");
 /* harmony import */ var pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(pc_bootstrap4_datetimepicker_build_css_bootstrap_datetimepicker_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-session */ "./node_modules/vue-session/index.js");
+/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_session__WEBPACK_IMPORTED_MODULE_4__);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -2077,8 +2079,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MODULE_1___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_session__WEBPACK_IMPORTED_MODULE_4___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DoctorPage",
   data: function data() {
@@ -2138,7 +2142,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var doctor = _step.value;
-            console.log(resp.data);
 
             if (doctorName === doctor.doctor) {
               if (doctor.type === 'Counseling') app.dataCounseling = resp.data;else app.dataPatient = resp.data;
@@ -2157,7 +2160,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
   created: function created() {
     var _this2 = this;
 
-    if (vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('login') === 'false') {
+    this.$session.start();
+
+    if (vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.get('login') === 'false' && !this.$session.set('doctor')) {
       window.location.href = '/login';
     } else {
       window.axios.get('./api/user').then(function (resp) {
@@ -2573,8 +2578,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js");
-/* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_cookies__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-session */ "./node_modules/vue-session/index.js");
+/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_session__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2608,7 +2613,7 @@ __webpack_require__.r(__webpack_exports__);
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
-Vue.use(vue_cookies__WEBPACK_IMPORTED_MODULE_0___default.a);
+Vue.use(vue_session__WEBPACK_IMPORTED_MODULE_0___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
   data: function data() {
@@ -2621,21 +2626,28 @@ Vue.use(vue_cookies__WEBPACK_IMPORTED_MODULE_0___default.a);
   },
   methods: {
     logDoctPage: function logDoctPage() {
-      var _this = this;
-
       if (this.email !== '' && this.password !== '') this.validate = false;else this.validate = true;
-      axios.get('./api/login').then(function (resp) {
+      var app = this;
+      window.axios.get('./api/login').then(function (resp) {
         for (var i = 0; i < resp.data.length; i++) {
-          if (resp.data[i].email === _this.email && resp.data[i].password === _this.password) {
-            _this.login = true;
-            Vue.$cookies.set('id', resp.data[i].id, 60 * 60 * 24).set('login', _this.login, 60 * 60 * 24);
+          app.$session.start();
+
+          if (resp.data[i].password === app.password && app.email === resp.data[i].email) {
+            app.login = true;
+            app.$session.set('doctor', {
+              login: true,
+              password: resp.data[i].password,
+              email: resp.data[i].email,
+              id: resp.data[i].id
+            });
+            Vue.$cookies.set('id', resp.data[i].id, 60 * 60 * 24).set('login', app.login, 60 * 60 * 24);
             window.location.href = 'user';
             break;
           } else {
             if (i === resp.data.length - 1) {
               alert('There isn`t user like this');
-              _this.login = false;
-              Vue.$cookies.set('login', _this.login, 60 * 60 * 24);
+              app.login = false;
+              Vue.$cookies.set('login', app.login, 60 * 60 * 24);
             }
           }
         }
@@ -2659,6 +2671,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js");
 /* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_cookies__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-session */ "./node_modules/vue-session/index.js");
+/* harmony import */ var vue_session__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_session__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -2692,6 +2706,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_session__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
@@ -2703,7 +2719,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
   methods: {
     logout: function logout() {
       vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.set('id', null, 60 * 60 * 24).set('login', false, 60 * 60 * 24);
-      window.location.href = '/login';
+      this.$session.start();
+      this.$session.remove('doctor');
+      console.log(this.$session.get('doctor')); // window.location.href = '/login';
     }
   }
 });
@@ -2843,6 +2861,7 @@ __webpack_require__.r(__webpack_exports__);
     addDoct: function addDoct() {
       var _this2 = this;
 
+      var app = this;
       axios.get('./api/login').then(function (resp) {
         if (resp.data.length === 0) {
           window.axios.post('./api/result', _this2.doctor).then(function (response) {
@@ -2854,14 +2873,11 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         for (var i = 0; i < resp.data.length; i++) {
-          console.log('last email - ' + resp.data[i].email);
-
           if (resp.data[i].email === _this2.doctor.email) {
             alert('There is email like that');
             break;
           } else {
             if (i === resp.data.length - 1) {
-              console.log('last email - ' + resp.data[i].email);
               window.axios.post('./api/result', _this2.doctor).then(function (response) {
                 alert('success');
                 window.location.href = '/login';
@@ -7434,7 +7450,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.navbar[data-v-6dde423b]{\r\n    z-index: 2;\r\n    position: fixed;\r\n    width: 100%;\r\n    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);\r\n    background: forestgreen;\n}\n#signup[data-v-6dde423b]{\r\n    border: 1px solid #845353;\r\n    padding: 12px;\r\n    color: white;\r\n    border-radius: 10px;\r\n    background: darkred;\r\n    font-size: 15px;\r\n    margin-right: 25px;\n}\n#signup[data-v-6dde423b]:hover{\r\n        background: #3f9ae5;\r\n        color: darkred;\r\n        border: 1px solid white;\n}\n#login[data-v-6dde423b]{\r\n        border: 1px solid #e2e2e2;\r\n        padding: 12px;\r\n        color: white;\r\n        border-radius: 10px;\r\n        background: #4c86af;\r\n        font-size: 15px;\r\n        margin-right: 25px;\n}\n#login[data-v-6dde423b]:hover{\r\n        border: 1px solid #0e340e;\r\n        padding: 12px;\r\n        color: darkred;\r\n        border-radius: 10px;\r\n        background: forestgreen;\r\n        font-size: 15px;\r\n        margin-right: 25px;\n}\n.router[data-v-6dde423b]{\r\n        margin-left: 25px;\n}\n.router[data-v-6dde423b]:hover{\r\n        color: darkred;\r\n        text-decoration: underline;\n}\r\n", ""]);
+exports.push([module.i, "\n.navbar[data-v-6dde423b]{\n    z-index: 2;\n    position: fixed;\n    width: 100%;\n    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);\n    background: forestgreen;\n}\n#signup[data-v-6dde423b]{\n    border: 1px solid #845353;\n    padding: 12px;\n    color: white;\n    border-radius: 10px;\n    background: darkred;\n    font-size: 15px;\n    margin-right: 25px;\n}\n#signup[data-v-6dde423b]:hover{\n        background: #3f9ae5;\n        color: darkred;\n        border: 1px solid white;\n}\n#login[data-v-6dde423b]{\n        border: 1px solid #e2e2e2;\n        padding: 12px;\n        color: white;\n        border-radius: 10px;\n        background: #4c86af;\n        font-size: 15px;\n        margin-right: 25px;\n}\n#login[data-v-6dde423b]:hover{\n        border: 1px solid #0e340e;\n        padding: 12px;\n        color: darkred;\n        border-radius: 10px;\n        background: forestgreen;\n        font-size: 15px;\n        margin-right: 25px;\n}\n.router[data-v-6dde423b]{\n        margin-left: 25px;\n}\n.router[data-v-6dde423b]:hover{\n        color: darkred;\n        text-decoration: underline;\n}\n", ""]);
 
 // exports
 
@@ -44224,6 +44240,124 @@ if (inBrowser && __webpack_provided_window_dot_Vue) {
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vue-session/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/vue-session/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var STORAGE = null;
+var VueSession = {
+    key: 'vue-session-key',
+    flash_key: 'vue-session-flash-key',
+    setAll: function(all){
+        STORAGE.setItem(VueSession.key,JSON.stringify(all));
+    }
+}
+
+VueSession.install = function(Vue, options) {
+    if(options && 'persist' in options && options.persist) STORAGE = window.localStorage;
+    else STORAGE = window.sessionStorage;
+    Vue.prototype.$session = {
+        flash: {
+            parent: function(){
+                return Vue.prototype.$session;
+            },
+            get: function(key){
+                var all = this.parent().getAll();
+                var all_flash = all[VueSession.flash_key] || {};
+
+                var flash_value = all_flash[key];
+
+                this.remove(key);
+
+                return flash_value;
+            },
+            set: function(key, value){
+                var all = this.parent().getAll();
+                var all_flash = all[VueSession.flash_key] || {};
+
+                all_flash[key] = value;
+                all[VueSession.flash_key] = all_flash;
+
+                VueSession.setAll(all);
+            },
+            remove: function(key){
+                var all = this.parent().getAll();
+                var all_flash = all[VueSession.flash_key] || {};
+
+                delete all_flash[key];
+
+                all[VueSession.flash_key] = all_flash;
+                VueSession.setAll(all);
+            }
+        },
+        getAll: function(){
+            var all = JSON.parse(STORAGE.getItem(VueSession.key));
+            return all || {};
+        },
+        set: function(key,value){
+            if(key == 'session-id') return false;
+            var all = this.getAll();
+
+            if(!('session-id' in all)){
+                this.start();
+                all = this.getAll();
+            }
+
+            all[key] = value;
+
+            VueSession.setAll(all);
+        },
+        get: function(key){
+            var all = this.getAll();
+            return all[key];
+        },
+        start: function(){
+            var all = this.getAll();
+            all['session-id'] = 'sess:'+Date.now();
+
+            VueSession.setAll(all);
+        },
+        renew: function(sessionId){
+            var all = this.getAll();
+            all['session-id'] = 'sess:' + sessionId;
+            VueSession.setAll(all);
+        },
+        exists: function(){
+            var all = this.getAll();
+            return 'session-id' in all;
+        },
+        has: function(key){
+            var all = this.getAll();
+            return key in all;
+        },
+        remove: function(key){
+            var all = this.getAll();
+            delete all[key];
+
+            VueSession.setAll(all);
+        },
+        clear: function(){
+            var all = this.getAll();
+
+            VueSession.setAll({'session-id': all['session-id']});
+        },
+        destroy: function(){
+            VueSession.setAll({});
+        },
+        id: function(){
+            return this.get('session-id');
+        }
+    }
+};
+
+module.exports = VueSession;
+
 
 /***/ }),
 

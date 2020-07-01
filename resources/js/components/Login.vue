@@ -30,8 +30,8 @@
 
 <script>
     var Vue = require('vue')
-    import VueCookies from 'vue-cookies';
-    Vue.use(VueCookies)
+    import VueSession from 'vue-session'
+    Vue.use(VueSession)
     export default {
         name: "Login",
         data() {
@@ -46,19 +46,27 @@
             logDoctPage: function () {
                 if(this.email !== '' && this.password !== '') this.validate = false;
                 else this.validate = true;
-                axios.get('./api/login').then(resp => {
+                var app = this;
+                window.axios.get('./api/login').then(resp => {
                     for (let i = 0; i < resp.data.length; i++) {
-                        if (resp.data[i].email === this.email && resp.data[i].password === this.password) {
-                            this.login = true;
+                        app.$session.start()
+                        if (resp.data[i].password === app.password && app.email === resp.data[i].email) {
+                            app.login = true;
+                            app.$session.set('doctor',{
+                                login: true,
+                                password: resp.data[i].password,
+                                email: resp.data[i].email,
+                                id: resp.data[i].id
+                            })
                             Vue.$cookies.set('id', resp.data[i].id, 60 * 60 * 24)
-                                .set('login', this.login, 60 * 60 * 24);
+                                .set('login', app.login, 60 * 60 * 24);
                             window.location.href = 'user';
                             break
                         } else {
                             if(i === resp.data.length-1){
                                 alert('There isn`t user like this');
-                                this.login = false;
-                                Vue.$cookies.set('login', this.login, 60 * 60 * 24)
+                                app.login = false;
+                                Vue.$cookies.set('login', app.login, 60 * 60 * 24)
                             }
                         }
                     }

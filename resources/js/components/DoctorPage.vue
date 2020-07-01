@@ -88,8 +88,11 @@
     import VueCookies from "vue-cookies";
     import VCalendar from 'v-calendar';
     import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+    import VueSession from 'vue-session'
     Vue.use(VCalendar);
     Vue.use(VueCookies);
+
+    Vue.use(VueSession)
     export default {
         name: "DoctorPage",
         data(){
@@ -141,7 +144,6 @@
                         var app =this;
                         let doctorName = this.doctor.name + ' ' + this.doctor.surname;
                         for(let doctor of resp.data){
-                            console.log(resp.data)
                             if(doctorName === doctor.doctor){
                                 if(doctor.type === 'Counseling')
                                     app.dataCounseling = resp.data;
@@ -157,7 +159,8 @@
         },
 
         created(){
-            if(Vue.$cookies.get('login') === 'false'){
+            this.$session.start();
+            if(Vue.$cookies.get('login') === 'false' && !this.$session.set('doctor')){
                 window.location.href = '/login';
             }else{
                 window.axios.get('./api/user').then(resp => {
