@@ -1912,6 +1912,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "About"
 });
@@ -39791,7 +39806,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("About")])
+  return _c(
+    "section",
+    {
+      staticClass: "header1 cid-qyvisAZ1Bw",
+      attrs: { id: "header1-7", "data-rv-view": "758" }
+    },
+    [
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-md-center" }, [
+          _c("div", { staticClass: "mbr-white col-md-10" }, [
+            _c(
+              "h1",
+              {
+                staticClass:
+                  "mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-5"
+              },
+              [_vm._v("About Us Page Template")]
+            ),
+            _vm._v(" "),
+            _c(
+              "h3",
+              {
+                staticClass:
+                  "mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-2"
+              },
+              [_vm._v("MEET OUR TEAM")]
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              {
+                staticClass:
+                  "mbr-text align-center pb-3 mbr-fonts-style display-5"
+              },
+              [
+                _vm._v(
+                  "\n                    We are all very different. We were born in different cities, at different times, we love different music, food, movies. But we have something that unites us all. It is our company. We are its heart. We are not just a team, we are a family.\n                "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "mbr-section-btn align-center" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass:
+                      "btn btn-md btn-black-outline btn btn-primary display-4",
+                    attrs: { to: "/contact", href: "index.html#form1-4" }
+                  },
+                  [_vm._v("\n                    CONTACT US")]
+                )
+              ],
+              1
+            )
+          ])
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
