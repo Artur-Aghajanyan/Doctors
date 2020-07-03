@@ -34,7 +34,7 @@
     import VueCookies from 'vue-cookies';
     import VueSession from 'vue-session';
 
-    Vue.use(VueSession)
+    Vue.use(VueSession);
     Vue.use(VueCookies);
     export default {
         name: "Navbar",
@@ -49,32 +49,31 @@
                     .set('login', false, 60 * 60 * 24);
                 this.$session.start()
                 this.$session.remove('doctor')
-                console.log(this.$session.get('doctor'))
-                // window.location.href = '/login';
+                window.location.href = '/login';
             }
         }
     }
 </script>
 
 <style scoped>
-.navbar{
-    z-index: 2;
-    position: fixed;
-    width: 100%;
-    -webkit-box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
-    -moz-box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
-    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
-    background: forestgreen;
-}
-#signup{
-    border: 1px solid #845353;
-    padding: 12px;
-    color: white;
-    border-radius: 10px;
-    background: darkred;
-    font-size: 15px;
-    margin-right: 25px;
-}
+    .navbar{
+        z-index: 2;
+        position: fixed;
+        width: 100%;
+        -webkit-box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
+        -moz-box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
+        box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);
+        background: forestgreen;
+    }
+    #signup{
+        border: 1px solid #845353;
+        padding: 12px;
+        color: white;
+        border-radius: 10px;
+        background: darkred;
+        font-size: 15px;
+        margin-right: 25px;
+    }
     #signup:hover{
         background: #3f9ae5;
         color: darkred;

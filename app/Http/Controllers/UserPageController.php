@@ -83,7 +83,7 @@ class UserPageController extends Controller
         //
     }
 
-    public function getAllData(Request $request){
+    public function getAllData(){
         $contact = SignupModel::all();
         return $contact;
     }

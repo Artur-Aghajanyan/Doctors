@@ -27,9 +27,3 @@ export default new VueRouter({
     ],
     mode: 'history'
 })
-
-//
-// export default new Vue({
-//     el: '#app',
-//     router: router
-// })

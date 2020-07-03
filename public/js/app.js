@@ -2061,14 +2061,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Contact"
 });
@@ -2100,8 +2092,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-//
-//
 //
 //
 //
@@ -2312,6 +2302,10 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2719,7 +2713,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
@@ -2831,7 +2824,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookies__WEBPACK_IMPORTED_MOD
       vue__WEBPACK_IMPORTED_MODULE_0___default.a.$cookies.set('id', null, 60 * 60 * 24).set('login', false, 60 * 60 * 24);
       this.$session.start();
       this.$session.remove('doctor');
-      console.log(this.$session.get('doctor')); // window.location.href = '/login';
+      window.location.href = '/login';
     }
   }
 });
@@ -2868,8 +2861,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -7524,7 +7515,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* table */\ntable[data-v-e77383aa]{\n    margin-top: 25px;\n}\ntable tr th[data-v-e77383aa]{\n    width: 41%;\n}\ntable .number[data-v-e77383aa]{\n    width: 8%;\n}\n.vc-container[data-v-e77383aa]{\n    width: 100%;\n}\n/*   **table **   */\n.table td[data-v-e77383aa] {\n    border: 1px solid black;\n    font-weight: 800;\n    font-size: 17px;\n}\n.table tr th[data-v-e77383aa]{\n    background: lightgray;\n    border: 1px solid black;\n}\n.table-label[data-v-e77383aa]{\n    color: #4cb1d2;\n    text-decoration: underline;\n    font-size: 30px;\n}\n/*END table */\n.vc-container[data-v-e77383aa]{\n    width: 100%;\n}\n.form-group[data-v-e77383aa]{\n    display: grid;\n    grid-template-columns: auto auto;\n}\n.form-group div[data-v-e77383aa]{\n    width: 70%;\n    margin: 40px auto;\n}\n.form-group div label[data-v-e77383aa]{\n    color: blueviolet;\n    font-weight: 900;\n    font-size: 20px;\n}\n@media only screen and (max-width:1000px){\n.form-group[data-v-e77383aa]{\n        display: block;\n}\n}\n/*   **end-table **   */\nbody[data-v-e77383aa] {\n    background: #F1F3FA;\n}\n\n/* Profile container */\n.profile[data-v-e77383aa] {\n    margin: 20px 0;\n}\n.container[data-v-e77383aa]{\n    background: #dedddd;\n    padding-bottom: 15px;\n    text-align: center;\n}\n\n/* Profile sidebar */\n.profile-sidebar[data-v-e77383aa] {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    margin-bottom: 10px;\n}\n.profile-userpic[data-v-e77383aa]{\n    text-align: center;\n}\n.profile-userpic img[data-v-e77383aa] {\n    float: none;\n    margin: 0 auto;\n    width: 50%;\n    height: 50%;\n    border-radius: 50% !important;\n}\n.profile-usertitle[data-v-e77383aa] {\n    text-align: center;\n    margin-top: 20px;\n}\n.col-md-3[data-v-e77383aa]{\n    border-radius: 15px;\n}\n.profile-usertitle-name[data-v-e77383aa] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.about[data-v-e77383aa] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.profile-usertitle-speciality[data-v-e77383aa] {\n    text-transform: uppercase;\n    color: #5b9bd1;\n    font-size: 12px;\n    font-weight: 600;\n    margin-bottom: 15px;\n}\n.profile-usermenu[data-v-e77383aa] {\n    text-align: center;\n    margin-top: 30px;\n}\n.profile-usermenu ul li[data-v-e77383aa] {\n    border-bottom: 1px solid #f0f4f7;\n}\n.profile-usermenu ul li[data-v-e77383aa]:last-child {\n    border-bottom: none;\n}\n.profile-usermenu ul li a[data-v-e77383aa] {\n    color: #93a3b5;\n    font-size: 14px;\n    font-weight: 400;\n}\n.profile-usermenu ul li a i[data-v-e77383aa] {\n    margin-right: 8px;\n    font-size: 14px;\n}\n.profile-usermenu ul li a[data-v-e77383aa]:hover {\n    background-color: #fafcfd;\n    color: #5b9bd1;\n}\n.profile-usermenu ul li.active[data-v-e77383aa] {\n    border-bottom: none;\n}\n.profile-usermenu ul li.active a[data-v-e77383aa] {\n    color: #5b9bd1;\n    background-color: #f6f9fb;\n    border-left: 2px solid #5b9bd1;\n    margin-left: -2px;\n}\n\n/* Profile Content */\n.profile-content[data-v-e77383aa] {\n    padding: 20px;\n    background: #fff;\n    min-height: 460px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* table */\ntable[data-v-e77383aa]{\n    margin-top: 25px;\n}\ntable tr th[data-v-e77383aa]{\n    width: 41%;\n}\ntable .number[data-v-e77383aa]{\n    width: 8%;\n}\n.vc-container[data-v-e77383aa]{\n    width: 100%;\n}\n/*   **table **   */\n.table td[data-v-e77383aa] {\n    border: 1px solid black;\n    font-weight: 800;\n    font-size: 17px;\n}\n.table tr th[data-v-e77383aa]{\n    background: lightgray;\n    border: 1px solid black;\n}\n.table-label[data-v-e77383aa]{\n    color: #4cb1d2;\n    text-decoration: underline;\n    font-size: 30px;\n}\n/*END table */\n.vc-container[data-v-e77383aa]{\n    width: 100%;\n}\n.form-group[data-v-e77383aa]{\n    display: grid;\n    grid-template-columns: auto auto;\n}\n.form-group div[data-v-e77383aa]{\n    width: 70%;\n    margin: 40px auto;\n}\n.form-group div label[data-v-e77383aa]{\n    color: blueviolet;\n    font-weight: 900;\n    font-size: 20px;\n}\n@media only screen and (max-width:1000px){\n.form-group[data-v-e77383aa]{\n        display: block;\n}\n}\n/*   **end-table **   */\nbody[data-v-e77383aa] {\n    background: #F1F3FA;\n}\n\n/* Profile container */\n.profile[data-v-e77383aa] {\n    margin: 20px 0;\n}\n.container[data-v-e77383aa]{\n    background: #dedddd;\n    padding-bottom: 15px;\n    text-align: center;\n}\n\n/* Profile sidebar */\n.profile-sidebar[data-v-e77383aa] {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    margin-bottom: 10px;\n}\n.profile-userpic[data-v-e77383aa]{\n    text-align: center;\n}\n.profile-userpic img[data-v-e77383aa] {\n    float: none;\n    margin: 0 auto;\n    width: 50%;\n    height: 50%;\n    border-radius: 50% !important;\n}\n.profile-usertitle[data-v-e77383aa] {\n    text-align: center;\n    margin-top: 20px;\n}\n.col-md-3[data-v-e77383aa]{\n    border-radius: 15px;\n}\n.profile-usertitle-name[data-v-e77383aa] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.about[data-v-e77383aa] {\n    color: #5a7391;\n    font-size: 16px;\n    font-weight: 600;\n    margin-bottom: 7px;\n}\n.profile-usertitle-speciality[data-v-e77383aa] {\n    text-transform: uppercase;\n    color: #5b9bd1;\n    font-size: 12px;\n    font-weight: 600;\n    margin-bottom: 15px;\n}\n.profile-usermenu[data-v-e77383aa] {\n    text-align: center;\n    margin-top: 30px;\n}\n.profile-usermenu ul li[data-v-e77383aa] {\n    border-bottom: 1px solid #f0f4f7;\n}\n.profile-usermenu ul li[data-v-e77383aa]:last-child {\n    border-bottom: none;\n}\n.profile-usermenu ul li a[data-v-e77383aa] {\n    color: #93a3b5;\n    font-size: 14px;\n    font-weight: 400;\n}\n.profile-usermenu ul li a i[data-v-e77383aa] {\n    margin-right: 8px;\n    font-size: 14px;\n}\n.profile-usermenu ul li a[data-v-e77383aa]:hover {\n    background-color: #fafcfd;\n    color: #5b9bd1;\n}\n.profile-usermenu ul li.active[data-v-e77383aa] {\n    border-bottom: none;\n}\n.profile-usermenu ul li.active a[data-v-e77383aa] {\n    color: #5b9bd1;\n    background-color: #f6f9fb;\n    border-left: 2px solid #5b9bd1;\n    margin-left: -2px;\n}\n\n/* Profile Content */\n.profile-content[data-v-e77383aa] {\n    padding: 20px;\n    background: #fff;\n    min-height: 460px;\n}\n", ""]);
 
 // exports
 
@@ -7581,7 +7572,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.navbar[data-v-6dde423b]{\r\n    z-index: 2;\r\n    position: fixed;\r\n    width: 100%;\r\n    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);\r\n    background: forestgreen;\n}\n#signup[data-v-6dde423b]{\r\n    border: 1px solid #845353;\r\n    padding: 12px;\r\n    color: white;\r\n    border-radius: 10px;\r\n    background: darkred;\r\n    font-size: 15px;\r\n    margin-right: 25px;\n}\n#signup[data-v-6dde423b]:hover{\r\n        background: #3f9ae5;\r\n        color: darkred;\r\n        border: 1px solid white;\n}\n#login[data-v-6dde423b]{\r\n        border: 1px solid #e2e2e2;\r\n        padding: 12px;\r\n        color: white;\r\n        border-radius: 10px;\r\n        background: #4c86af;\r\n        font-size: 15px;\r\n        margin-right: 25px;\n}\n#login[data-v-6dde423b]:hover{\r\n        border: 1px solid #0e340e;\r\n        padding: 12px;\r\n        color: darkred;\r\n        border-radius: 10px;\r\n        background: forestgreen;\r\n        font-size: 15px;\r\n        margin-right: 25px;\n}\n.router[data-v-6dde423b]{\r\n        margin-left: 25px;\n}\n.router[data-v-6dde423b]:hover{\r\n        color: darkred;\r\n        text-decoration: underline;\n}\r\n", ""]);
+exports.push([module.i, "\n.navbar[data-v-6dde423b]{\n    z-index: 2;\n    position: fixed;\n    width: 100%;\n    box-shadow: 0px 5px 12px 0px rgba(138,134,138,1);\n    background: forestgreen;\n}\n#signup[data-v-6dde423b]{\n    border: 1px solid #845353;\n    padding: 12px;\n    color: white;\n    border-radius: 10px;\n    background: darkred;\n    font-size: 15px;\n    margin-right: 25px;\n}\n#signup[data-v-6dde423b]:hover{\n    background: #3f9ae5;\n    color: darkred;\n    border: 1px solid white;\n}\n#login[data-v-6dde423b]{\n    border: 1px solid #e2e2e2;\n    padding: 12px;\n    color: white;\n    border-radius: 10px;\n    background: #4c86af;\n    font-size: 15px;\n    margin-right: 25px;\n}\n#login[data-v-6dde423b]:hover{\n    border: 1px solid #0e340e;\n    padding: 12px;\n    color: darkred;\n    border-radius: 10px;\n    background: forestgreen;\n    font-size: 15px;\n    margin-right: 25px;\n}\n.router[data-v-6dde423b]{\n    margin-left: 25px;\n}\n.router[data-v-6dde423b]:hover{\n    color: darkred;\n    text-decoration: underline;\n}\n", ""]);
 
 // exports
 
@@ -7621,7 +7612,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container[data-v-5c0ed343]{\r\n    background: url(" + escape(__webpack_require__(/*! ../../images/rethink-target-heart-rate-number-ftr.jpg */ "./resources/images/rethink-target-heart-rate-number-ftr.jpg")) + ") no-repeat;\r\n    background-size: cover;\n}\n.card-header[data-v-5c0ed343]{\r\n    background: #1cb31c;\n}\n.mb-0[data-v-5c0ed343], .my-2[data-v-5c0ed343]{\r\n    font-weight: 900;\r\n    text-align: center;\n}\n#inputDownloadImage[data-v-5c0ed343]{\r\n    width: 125px;\n}\n.aaalave[data-v-5c0ed343]{\r\n    background: url(\"http://100dayscss.com/codepen/upload.svg\") no-repeat;\r\n    cursor: pointer;\r\n    background-size: 100px;\r\n    width: 100px;\r\n    height: 59px;\n}\n.tolave[data-v-5c0ed343]{\r\n    display: none;\n}\n.downloadImage[data-v-5c0ed343]{\r\n    display: block;\n}\n.validate[data-v-5c0ed343]{\r\n        color: darkred;\r\n        border-color: darkred;\n}\n.success_add[data-v-5c0ed343]{\r\n    color: green;\n}\r\n", ""]);
+exports.push([module.i, "\n.container[data-v-5c0ed343]{\n    background: url(" + escape(__webpack_require__(/*! ../../images/rethink-target-heart-rate-number-ftr.jpg */ "./resources/images/rethink-target-heart-rate-number-ftr.jpg")) + ") no-repeat;\n    background-size: cover;\n}\n.card-header[data-v-5c0ed343]{\n    background: #1cb31c;\n}\n.mb-0[data-v-5c0ed343], .my-2[data-v-5c0ed343]{\n    font-weight: 900;\n    text-align: center;\n}\n#inputDownloadImage[data-v-5c0ed343]{\n    width: 125px;\n}\n.aaalave[data-v-5c0ed343]{\n    background: url(\"http://100dayscss.com/codepen/upload.svg\") no-repeat;\n    cursor: pointer;\n    background-size: 100px;\n    width: 100px;\n    height: 59px;\n}\n.tolave[data-v-5c0ed343]{\n    display: none;\n}\n.downloadImage[data-v-5c0ed343]{\n    display: block;\n}\n.validate[data-v-5c0ed343]{\n        color: darkred;\n        border-color: darkred;\n}\n.success_add[data-v-5c0ed343]{\n    color: green;\n}\n", ""]);
 
 // exports
 
@@ -39953,7 +39944,7 @@ var staticRenderFns = [
               attrs: {
                 id: "contact-form",
                 name: "contact-form",
-                action: "mail.php",
+                action: "",
                 method: "POST"
               }
             },
@@ -40344,9 +40335,9 @@ var render = function() {
             _c("div", { staticClass: "profile-usertitle-speciality" }, [
               _vm._m(2),
               _vm._v(
-                "\n                            " +
+                "\n                        " +
                   _vm._s(_vm.speciality) +
-                  "\n                        "
+                  "\n                    "
               )
             ])
           ]),
@@ -40354,9 +40345,9 @@ var render = function() {
           _c("div", { staticClass: "profile-usermenu" }, [
             _vm._m(3),
             _vm._v(
-              "\n                        " +
+              "\n                    " +
                 _vm._s(_vm.about) +
-                "\n                    "
+                "\n                "
             )
           ])
         ])
@@ -57823,11 +57814,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     component: _components_PageNotFound__WEBPACK_IMPORTED_MODULE_9__["default"]
   }],
   mode: 'history'
-})); //
-// export default new Vue({
-//     el: '#app',
-//     router: router
-// })
+}));
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js")))
 
 /***/ }),

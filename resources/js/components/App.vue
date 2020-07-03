@@ -14,8 +14,8 @@
             Navbar
         }
     }
-
 </script>
+
 <style scoped>
     .container{
         padding-top: 66px;

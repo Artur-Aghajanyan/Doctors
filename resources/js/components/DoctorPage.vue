@@ -3,12 +3,9 @@
         <div class="row profile">
             <div class="col-md-3">
                 <div class="profile-sidebar">
-                    <!-- SIDEBAR USERPIC -->
                     <div class="profile-userpic">
                         <img :src="doctor.image" class="img-responsive" alt="">
                     </div>
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name">
                             <h6><b><u>Name:</u></b> {{doctor.name}}</h6>
@@ -24,7 +21,6 @@
                         <h6 class="about"><b><u>About me</u></b></h6>
                         {{doctor.about}}
                     </div>
-                    <!-- END MENU -->
                 </div>
             </div>
             <div class="col-md-9" style="background: white">
@@ -41,6 +37,7 @@
                             is-inline>
                         </v-date-picker>
                         <br><br><br>
+
                         <label class="table-label">Table of Counseling</label>
                         <table  class="table">
                             <tr style="font-family: sans-serif;">
@@ -59,6 +56,7 @@
                             </tr>
                         </table>
                         <br>
+
                         <label class="table-label">Sick of Patients Table</label>
                         <table class="table">
                             <tr style="font-family: sans-serif;">

@@ -3,12 +3,10 @@
         <div class="row profile">
             <div class="col-md-3">
                 <div class="profile-sidebar">
-                    <!-- SIDEBAR USERPIC -->
                     <div class="profile-userpic">
                         <img :src="image" class="img-responsive" alt="">
                     </div>
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
+
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name">
                             <h6><b><u>Name:</u></b> {{name}}</h6>
@@ -20,13 +18,14 @@
                             {{speciality}}
                         </div>
                     </div>
+
                     <div class="profile-usermenu">
                         <h6 class="about"><b><u>About me</u></b></h6>
                         {{about}}
                     </div>
-                    <!-- END MENU -->
                 </div>
             </div>
+
             <div class="col-md-9" style="background: white">
                 <div class="profile-content">
                     <div class="profile-content">
@@ -42,6 +41,7 @@
                             locale="en"
                             is-inline>
                         </v-date-picker>
+
                         <div class="form-group">
                             <div id="option_1">
                                 <label for="inputTimeCounseling">Counseling</label>
@@ -59,6 +59,7 @@
                                 <br><span v-if="counselingType !== 'No Selected'">{{counselingType}}</span>
                                 <hr>
                                 <br><br>
+
                                 <label for="inputName" >Name</label>
                                 <input type="text"
                                        class="form-control"
@@ -67,7 +68,7 @@
                                        v-model="patient.name"
                                        required="">
                                 <br><br>
-<!--                                pattern="[+]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}"-->
+
                                 <label for="inputPhone" >Phone</label>
                                 <input type="tel"
                                        pattern="[+]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
@@ -77,6 +78,7 @@
                                        v-model="patient.phone"
                                        required>
                             </div>
+
                             <div id="option_2">
                                 <label for="inputTimeSickPatient" >Sick Patient</label>
                                 <select class="form-control" @change="getSickVal" name="cars" id="inputTimeSickPatient">
@@ -89,6 +91,7 @@
                                 <br><span v-if="sickPatientType !== 'No Selected'">{{sickPatientType}}</span>
                                 <hr>
                                 <br><br>
+
                                 <label for="inputSurname" >Surname</label>
                                 <input type="text"
                                        class="form-control"
@@ -100,6 +103,7 @@
                                 <button class="btn btn-success" @click="Register">Register</button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -179,7 +183,6 @@
                     type:'',
                 },
                 resCheck: true,
-
             }
         },
         methods:{

@@ -6,7 +6,6 @@
             <div class="login-popup-heading text-center">
                 <h1><i class="fa fa-lock" aria-hidden="true"></i> Login </h1>
             </div>
-            <!--<form accept-charset="utf-8" method="post" action="">-->
             <form id="loginMember" role="form"
                   @submit.prevent="logDoctPage"
                   action="" method="post">

@@ -82,8 +82,6 @@
     </div>
 </template>
 
-import axios from 'axios
-
 <script>
     export default({
         name: "Signup",
@@ -154,41 +152,41 @@ import axios from 'axios
 
 </script>
 <style scoped>
-.container{
-    background: url("../../images/rethink-target-heart-rate-number-ftr.jpg") no-repeat;
-    background-size: cover;
-}
-
-.card-header{
-    background: #1cb31c;
-}
-.mb-0, .my-2{
-    font-weight: 900;
-    text-align: center;
-}
-
-#inputDownloadImage{
-    width: 125px;
-}
-.aaalave{
-    background: url("http://100dayscss.com/codepen/upload.svg") no-repeat;
-    cursor: pointer;
-    background-size: 100px;
-    width: 100px;
-    height: 59px;
-}
-.tolave{
-    display: none;
-}
-
-.downloadImage{
-    display: block;
-}
-    .validate{
-        color: darkred;
-        border-color: darkred;
+    .container{
+        background: url("../../images/rethink-target-heart-rate-number-ftr.jpg") no-repeat;
+        background-size: cover;
     }
-.success_add{
-    color: green;
-}
+
+    .card-header{
+        background: #1cb31c;
+    }
+    .mb-0, .my-2{
+        font-weight: 900;
+        text-align: center;
+    }
+
+    #inputDownloadImage{
+        width: 125px;
+    }
+    .aaalave{
+        background: url("http://100dayscss.com/codepen/upload.svg") no-repeat;
+        cursor: pointer;
+        background-size: 100px;
+        width: 100px;
+        height: 59px;
+    }
+    .tolave{
+        display: none;
+    }
+
+    .downloadImage{
+        display: block;
+    }
+        .validate{
+            color: darkred;
+            border-color: darkred;
+        }
+    .success_add{
+        color: green;
+    }
 </style>
